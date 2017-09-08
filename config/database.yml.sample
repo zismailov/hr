@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  host: localhost
+
+development:
+  <<: *default
+  database: test_development
+
+test:
+  <<: *default
+  database: test_test
+
+staging:
+  adapter: postgresql
+  database: test_staging
+  pool: 15
+
+production:
+  adapter: postgresql
+  #database: database
+  #username: username
+  #password: password
+  #host: host
+  database: test_staging
+  pool: 15

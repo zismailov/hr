@@ -1,0 +1,7 @@
+{
+  "name": "hr",
+  "private": true,
+  "dependencies": {
+    "postcss-sorting": "^3.0.1"
+  }
+}
