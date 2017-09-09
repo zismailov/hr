@@ -1,0 +1,19 @@
+.row
+  .columns
+    h2 = title("Didn't receive confirmation instructions?")
+
+.row
+  .medium-5.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: confirmation_path(resource_name),
+        html: { method: :post } do |f|
+
+      .form-inputs
+        = f.input :email, required: true
+
+      .form-actions
+        = f.button :submit, "Resend confirmation instructions"
+
+  .medium-5.medium-offset-1.columns.end
+    = render "users/shared/links"

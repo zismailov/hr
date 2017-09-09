@@ -1,0 +1,27 @@
+.row
+  .columns
+    h2 = title("Sign in")
+
+.row
+  .medium-5.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: session_path(resource_name) do |f|
+
+      legend
+        | Enter your
+        '
+        strong Rails Base example site
+        '
+        | account
+
+      .form-inputs
+        = f.input :email, required: false, autofocus: true
+        = f.input :password, required: false
+        = f.input :remember_me, as: :boolean
+
+      .form-actions
+        = f.button :submit, "Sign in"
+
+  .medium-5.medium-offset-1.columns.end
+    = render "users/shared/links"

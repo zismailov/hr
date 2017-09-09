@@ -1,0 +1,11 @@
+.scaffold-form
+  = simple_form_for(invite) do |f|
+    .form-inputs
+      = f.input :assessement_id
+      = f.input :user_id
+
+    .form-actions
+      = f.button :submit
+      '  or
+      = link_to 'Back', :back
+

@@ -1,0 +1,18 @@
+.row
+  .columns
+    h2 = title("Forgot your password?")
+
+.row
+  .medium-5.columns
+    = simple_form_for resource,
+        as: resource_name,
+        url: password_path(resource_name),
+        html: { method: :post } do |f|
+
+      .form-inputs
+        = f.input :email, required: true
+      .form-actions
+        = f.button :submit, "Send me reset password instructions"
+
+  .medium-5.medium-offset-1.columns.end
+    = render "users/shared/links"

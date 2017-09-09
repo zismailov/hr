@@ -1,0 +1,15 @@
+.show-item
+  .well.skill.form-horizontal
+
+    .control-group
+      label.control-label
+        | Description
+      .controls
+        .input-xlarge.uneditable-input.text.span7
+          = skill.description
+  .form-actions
+    = link_to(edit_skill_path(skill), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

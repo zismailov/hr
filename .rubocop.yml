@@ -7,47 +7,42 @@ AllCops:
   TargetRubyVersion: 2.4
   DisplayCopNames: true
   Exclude:
-    - bin/**/*
-    - db/**/*
-    - lib/templates/**/*
-    - vendor/**/*
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'lib/templates/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
 
 Style/Documentation:
- Description: 'Document classes and non-namespace modules.'
- Enabled: false
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
 
 Style/MethodCalledOnDoEndBlock:
- Enabled: true
+  Enabled: true
 
 Style/CollectionMethods:
- Enabled: true
+  Enabled: true
 
 Style/SymbolArray:
- Description: 'Use %i or %I for arrays of symbols.'
- Enabled: true
+  Description: 'Use %i or %I for arrays of symbols.'
+  Enabled: true
 
 Style/StringLiterals:
- EnforcedStyle: double_quotes
- ConsistentQuotesInMultiline: true
+  EnforcedStyle: double_quotes
+  ConsistentQuotesInMultiline: true
 
 Metrics/LineLength:
- Description: 'Limit lines to 120 characters.'
- Max: 120
-
-Lint/EndAlignment:
- AlignWith: variable
- SupportedStyles:
-   - keyword
-   - variable
+  Description: 'Limit lines to 120 characters.'
+  Max: 120
 
 Style/AlignParameters:
- EnforcedStyle: with_fixed_indentation
- SupportedStyles:
-   - with_first_parameter
-   - with_fixed_indentation
+  EnforcedStyle: with_fixed_indentation
+  SupportedStyles:
+    - with_first_parameter
+    - with_fixed_indentation
 
 Style/FrozenStringLiteralComment:
- Enabled: false
+  Enabled: false
 
 Style/StringMethods:
- Enabled: true
+  Enabled: true

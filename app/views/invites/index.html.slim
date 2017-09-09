@@ -1,0 +1,14 @@
+.row
+  .middle-12.columns
+    h3 My Invites
+    table.table
+      thead
+        th Employee full name
+        th Employee role
+        th Assessment
+      tbody
+        - current_user.invites.each do |invite|
+          tr
+            td = invite.assessment.user.full_name
+            td = invite.assessment.user.role
+            td = link_to "Create feedback", new_assessment_feedback_path(invite.assessment)

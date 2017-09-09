@@ -1,0 +1,22 @@
+.row
+  .middle-12.columns
+    h3 = user.full_name
+    h4 Scheduled assessments
+    table.table.table-striped
+      thead
+        tr
+          th Date
+          th Actions
+
+      - assessments.each do |assessment|
+        tr
+          td= assessment.date
+          td.actions
+            =' link_to "view", user_assessment_path(user, assessment), class: 'button tiny'
+            =' link_to "edit", edit_user_assessment_path(user, assessment), class: 'button tiny'
+            =' link_to "delete", user_assessment_path(user, assessment), method: :delete, class: 'button tiny alert'
+
+    br
+    = link_to new_user_assessment_path(user), class: 'button' do
+      i.fi-plus
+      |  Schedule New Assessment

@@ -1,1 +1,4 @@
+--colour
+--format documentation
 --require spec_helper
+--profile 2

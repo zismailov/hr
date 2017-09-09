@@ -1,0 +1,26 @@
+.row
+  .medium-12.columns
+    h3 = user.full_name
+    h4 Assessment: #{assessment.date}
+    = link_to "edit", edit_user_assessment_path(user, assessment)
+hr
+
+.row
+  .medium-12.columns
+    h4 Invited employees
+    table
+      - assessment.invites.each do |invite|
+        tr
+          td = invite.user.full_name_with_role
+          td = link_to "remove", invite, method: :delete
+.row
+  .medium-4.columns
+    .scaffold-form
+      = simple_form_for(assessment.invites.new) do |f|
+        .form-inputs
+          = f.hidden_field :assessment_id, value: assessment.id
+          = f.input :user_id, collection: User.sorted, label_method: :full_name_with_role
+
+        .form-actions
+          = f.button :submit, class: "tiny"
+hr

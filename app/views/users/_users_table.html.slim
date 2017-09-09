@@ -1,0 +1,15 @@
+table.table
+  thead
+    th Full name
+    th Email
+    th Role
+    th Level
+    th Assessments
+  tbody
+    - users.each do |user|
+      tr
+        td = user.full_name
+        td = user.email
+        td = user.role
+        td = user.level
+        td = link_to "View assessments", user_assessments_path(user)

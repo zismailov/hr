@@ -1,0 +1,27 @@
+.show-item
+  .well.skill_feedback.form-horizontal
+
+    .control-group
+      label.control-label
+        | Skill
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = skill_feedback.skill_id
+    .control-group
+      label.control-label
+        | Feedback
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = skill_feedback.feedback_id
+    .control-group
+      label.control-label
+        | Score
+      .controls
+        .input-xlarge.uneditable-input.integer.span7
+          = skill_feedback.score
+  .form-actions
+    = link_to(edit_skill_feedback_path(skill_feedback), class: 'btn btn-primary') do
+      i.fi-pencil
+      | Edit
+    '  or
+    = link_to 'Back', :back

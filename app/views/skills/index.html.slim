@@ -1,0 +1,29 @@
+table.table.table-striped
+  thead
+    tr
+        th Description
+        th Actions
+
+  - skills.each do |skill|
+    tr
+      td= skill.description
+      td.actions
+        = link_to(skill, class: 'btn') do
+          i.fi-eye
+          |  Show
+        = link_to(edit_skill_path(skill), class: 'btn') do
+          i.fi-pencil
+          |  Edit
+        = link_to(skill, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
+          i.fi-trash
+          |  Delete
+
+.paginator
+  = paginate(skills)
+
+br
+= link_to new_skill_path, class: 'btn btn-primary' do
+  i.fi-plus
+  |  New Skill
+
+
