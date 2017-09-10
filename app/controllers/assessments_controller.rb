@@ -8,6 +8,7 @@ class AssessmentsController < ApplicationController
   expose :assessments, -> { user.assessments }
 
   def create
+    assessment.user = user
     assessment.save
 
     redirect_to user_assessments_path(user)

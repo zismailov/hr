@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "users/registrations" }
 
   resources :assessments, only: %i[index] do
-    resources :feedbacks
+    resources :feedbacks, shallow: true
   end
 
   resources :users, only: %i[index] do

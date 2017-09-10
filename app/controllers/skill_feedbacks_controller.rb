@@ -2,7 +2,6 @@ class SkillFeedbacksController < ApplicationController
   respond_to :html
 
   expose :skill_feedback
-  expose :skill_feedbacks, -> { SkillFeedback.page(params[:page]) }
 
   def create
     skill_feedback.save
@@ -22,6 +21,6 @@ class SkillFeedbacksController < ApplicationController
   private
 
   def skill_feedback_params
-    params.require(:skill_feedback).permit(:skill_id, :feedback_id, :score)
+    params.require(:skill_feedback).permit(:skill_id, :feedback_id, :score, :comment)
   end
 end

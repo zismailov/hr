@@ -1,21 +1,16 @@
-.show-item
-  .well.feedback.form-horizontal
-
-    .control-group
-      label.control-label
-        | User
-      .controls
-        .input-xlarge.uneditable-input.integer.span7
-          = feedback.user_id
-    .control-group
-      label.control-label
-        | Assessment
-      .controls
-        .input-xlarge.uneditable-input.integer.span7
-          = feedback.assessment_id
-  .form-actions
-    = link_to(edit_feedback_path(feedback), class: 'btn btn-primary') do
-      i.fi-pencil
-      | Edit
-    '  or
-    = link_to 'Back', :back
+.row
+  .medium-12.columns
+    h3 Feedback for #{feedback.assessment.user.full_name}
+    h4 Assessment: #{feedback.assessment.date}
+  hr
+  table
+    thead
+      th Skill
+      th Given score
+      th Comment
+    tbody
+      - feedback.skill_feedbacks.each do |sf|
+        tr
+          td = sf.skill.description
+          td = sf.score
+          td = sf.comment

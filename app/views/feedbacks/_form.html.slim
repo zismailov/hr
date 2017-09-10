@@ -1,12 +1,20 @@
 .scaffold-form
-  = simple_form_for(feedback) do |f|
+  = simple_form_for([assessment,feedback]) do |f|
     = f.hidden_field :user_id, value: current_user.id
     = f.hidden_field :assessment_id, value: assessment.id
     .form-inputs
     = f.simple_fields_for :skill_feedbacks do |sf|
-      = sf.input :score, label: sf.object.skill.description
+      = sf.input :skill_id, value: sf.object.skill_id, as: :hidden
+      .row
+        h4 = sf.object.skill.description
+        .small-6.columns
+          h5 Score:
+        .small-6.columns
+          = sf.input :score, collection: [1,2,3,4,5], label: false
+      .row
+        .small-12.columns
+          = sf.input :comment, as: :text, placeholder: "Please, put your feedback here!"
     .form-actions
       = f.button :submit
       '  or
       = link_to 'Back', :back
-
