@@ -6,6 +6,8 @@ class AssessmentsController < ApplicationController
   expose :user
   expose :assessment
   expose :assessments, -> { user.assessments }
+  expose :invites, -> { fetch_invites }
+  expose :feedbacks, -> { fetch_feedbacks }
 
   def create
     assessment.user = user
@@ -30,5 +32,13 @@ class AssessmentsController < ApplicationController
 
   def assessment_params
     params.require(:assessment).permit(:user_id, :date)
+  end
+
+  def fetch_invites
+    assessment.invites.includes(:user)
+  end
+
+  def fetch_feedbacks
+    assessment.feedbacks.includes(:user, skill_feedbacks: :skill)
   end
 end

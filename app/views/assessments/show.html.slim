@@ -9,14 +9,14 @@ hr
   .medium-12.columns
     h4 Invited employees
     table
-      - assessment.invites.each do |invite|
+      - invites.each do |invite|
         tr
           td = invite.user.full_name_with_role
           td = link_to "remove", invite, method: :delete
 .row
   .medium-4.columns
     .scaffold-form
-      = simple_form_for(assessment.invites.new) do |f|
+      = simple_form_for(invites.new) do |f|
         .form-inputs
           = f.hidden_field :assessment_id, value: assessment.id
           = f.input :user_id, collection: User.sorted, label_method: :full_name_with_role
@@ -28,7 +28,7 @@ hr
 .row
   .medium-12.columns
     h4 Feedbacks:
-    - assessment.feedbacks.each do |af|
+    - feedbacks.each do |af|
       h5 Feedback from: #{af.user.full_name_with_role}
       table
         thead
@@ -47,13 +47,22 @@ hr
     table
       thead
         th Skill
-        - assessment.feedbacks.each do |feedback|
+        - feedbacks.each do |feedback|
           th = feedback.user.full_name_with_role
+        th AVG
         th SUMM
       tbody
         - Skill.all.each do |skill|
           tr
             td = skill.description
-            - assessment.feedbacks.each do |feedback|
+            - feedbacks.each do |feedback|
               td = feedback.skill_feedbacks.find_by(skill_id: skill.id).score
+            td = (SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id).sum(:score) * 1.0 / SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id).count).round(2)
             td = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id).sum(:score)
+        tr
+          td
+          - feedbacks.each do |feedback|
+            td
+          td
+            strong SUMM:
+          td = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).sum(:score)

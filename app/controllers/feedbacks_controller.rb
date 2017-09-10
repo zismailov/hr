@@ -5,6 +5,7 @@ class FeedbacksController < ApplicationController
 
   expose :feedback
   expose :feedbacks, -> { current_user.feedbacks }
+  expose :skill_feedbacks, -> { fetch_skill_feedbacks }
 
   def index; end
 
@@ -36,5 +37,9 @@ class FeedbacksController < ApplicationController
     params.require(:feedback).permit(:user_id,
       :assessment_id,
       "skill_feedbacks_attributes": %i[score skill_id comment])
+  end
+
+  def fetch_skill_feedbacks
+    feedback.skill_feedbacks.includes(:skill)
   end
 end

@@ -9,7 +9,7 @@
       th Given score
       th Comment
     tbody
-      - feedback.skill_feedbacks.each do |sf|
+      - skill_feedbacks.each do |sf|
         tr
           td = sf.skill.description
           td = sf.score

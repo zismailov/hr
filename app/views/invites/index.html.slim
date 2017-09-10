@@ -7,7 +7,7 @@
         th Employee role
         th Assessment
       tbody
-        - current_user.invites.each do |invite|
+        - invites.each do |invite|
           tr
             td = invite.assessment.user.full_name
             td = invite.assessment.user.role
