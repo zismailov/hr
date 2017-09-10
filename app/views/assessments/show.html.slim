@@ -52,14 +52,16 @@ hr
         th AVG
         th SUMM
       tbody
-        - Skill.all.each do |skill|
+        - @assessment_statistics[:skill_statistic].each do |ss|
           tr
-            td = skill.description
+            td = ss[0]
             - feedbacks.each do |feedback|
-              td = feedback.skill_feedbacks.find_by(skill_id: skill.id).score
-            td = (SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id).sum(:score) * 1.0 / SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id).count).round(2)
-            td = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id).sum(:score)
+              td = feedback.skill_feedbacks.find_by(skill_id: ss[1]).score
+            td = ss[2]
+            td = ss[3]
+
+
     strong
       .text-right
         ' SUMM:
-        = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).sum(:score)
+        = @assessment_statistics[:total_sum]

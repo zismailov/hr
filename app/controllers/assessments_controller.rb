@@ -9,6 +9,10 @@ class AssessmentsController < ApplicationController
   expose :invites, -> { fetch_invites }
   expose :feedbacks, -> { fetch_feedbacks }
 
+  def show
+    @assessment_statistics = AssessmentStatistics.new(assessment).results
+  end
+
   def create
     assessment.user = user
     assessment.save
