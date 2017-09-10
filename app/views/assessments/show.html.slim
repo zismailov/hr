@@ -24,3 +24,20 @@ hr
         .form-actions
           = f.button :submit, class: "tiny"
 hr
+
+.row
+  .medium-12.columns
+    h4 Feedbacks:
+    - assessment.feedbacks.each do |af|
+      h5 Feedback from: #{af.user.full_name_with_role}
+      table
+        thead
+          th Skill
+          th Given score
+          th Comment
+        tbody
+          - af.skill_feedbacks.each do |sf|
+            tr
+              td = sf.skill.description
+              td = sf.score
+              td = sf.comment
