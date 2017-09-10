@@ -1,4 +1,7 @@
 # HR Tool
+[![Code Climate](https://codeclimate.com/github/zismailov/hr/badges/gpa.svg)](https://codeclimate.com/github/zismailov/hr)
+[![Test Coverage](https://codeclimate.com/github/zismailov/hr/badges/coverage.svg)](https://codeclimate.com/github/zismailov/hr/coverage)
+[![Issue Count](https://codeclimate.com/github/zismailov/hr/badges/issue_count.svg)](https://codeclimate.com/github/zismailov/hr)
 ### Project for fun
 
 ## Getting Started
