@@ -1,10 +1,10 @@
 class User
   class ParameterSanitizer < Devise::ParameterSanitizer
     USER_PARAMS = %i[
-      full_name
       email
       password
       password_confirmation
+      full_name
     ].freeze
 
     def sign_up

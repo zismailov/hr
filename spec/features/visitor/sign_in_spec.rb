@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.feature "Sign In", type: :feature do
-  let(:user) { create :user }
-  let(:unconfirmed_user) { create :user, :not_confirmed }
+  let(:user) { create :user, :hr }
+  let(:unconfirmed_user) { create :user, :hr, :not_confirmed }
 
   def sign_in(email, password)
     visit new_user_session_path

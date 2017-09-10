@@ -3,7 +3,7 @@
   br
   strong = user.full_name
 
-  = simple_form_for([user,assessment]) do |f|
+  = simple_form_for([user, assessment]) do |f|
     .form-inputs
       = f.hidden_field :user_id, value: user.id
       = f.input :date
@@ -11,4 +11,4 @@
     .form-actions
       = f.button :submit
       '  or
-      = link_to 'Back', :back
+      = link_to "Back", :back

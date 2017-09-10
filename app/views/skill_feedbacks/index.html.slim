@@ -12,13 +12,13 @@ table.table.table-striped
       td= skill_feedback.feedback_id
       td= skill_feedback.score
       td.actions
-        = link_to(skill_feedback, class: 'btn') do
+        = link_to(skill_feedback, class: "btn") do
           i.fi-eye
           |  Show
-        = link_to(edit_skill_feedback_path(skill_feedback), class: 'btn') do
+        = link_to(edit_skill_feedback_path(skill_feedback), class: "btn") do
           i.fi-pencil
           |  Edit
-        = link_to(skill_feedback, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
+        = link_to(skill_feedback, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }) do
           i.fi-trash
           |  Delete
 
@@ -26,8 +26,6 @@ table.table.table-striped
   = paginate(skill_feedbacks)
 
 br
-= link_to new_skill_feedback_path, class: 'btn btn-primary' do
+= link_to new_skill_feedback_path, class: "btn btn-primary" do
   i.fi-plus
   |  New Skill feedback
-
-

@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Password Reset", type: :feature do
   let(:new_password) { "qwe123" }
-  let(:user) { create :user }
+  let(:user) { create :user, :hr }
 
   def update_password
     fill_in "Enter new password", with: new_password

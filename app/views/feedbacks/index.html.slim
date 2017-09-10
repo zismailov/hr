@@ -10,12 +10,12 @@
         tr
           td= feedback.assessment.user.full_name
           td.actions
-            = link_to(feedback, class: 'btn') do
+            = link_to(feedback, class: "btn") do
               i.fi-eye
               |  Show
-            = link_to(edit_feedback_path(feedback), class: 'btn') do
+            = link_to(edit_feedback_path(feedback), class: "btn") do
               i.fi-pencil
               |  Edit
-            = link_to(feedback, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }) do
+            = link_to(feedback, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }) do
               i.fi-trash
               |  Delete

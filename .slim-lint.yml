@@ -27,6 +27,7 @@ linters:
       - Lint/EndAlignment
       - Lint/Void
       - Metrics/LineLength
+      - Rails/OutputSafety
       - Style/AlignHash
       - Style/AlignParameters
       - Style/BlockNesting
