@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :user do
     full_name { Faker::Name.name }
-    email { Faker::Internet.email }
+    email { generate :hr_email }
     password "123456"
     password_confirmation { password }
     level 1

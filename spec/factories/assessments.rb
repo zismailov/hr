@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :assessment do
-    user_id 1
-    date "2016-10-08"
+    user
+    date { Faker::Date.forward(1) }
   end
 end

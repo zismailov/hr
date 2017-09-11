@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :skill_feedback do
-    skill_id 1
-    feedback_id 1
-    score 1
+    skill
+    feedback
+    comment { Faker::Lorem.sentence }
+    score { Faker::Number.between(1, 5) }
   end
 end

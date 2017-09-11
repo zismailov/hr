@@ -1,5 +1,5 @@
 FactoryGirl.define do
   factory :skill do
-    description "MyText"
+    description { Faker::Lorem.sentence }
   end
 end
