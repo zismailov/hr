@@ -7,4 +7,7 @@ ul.top-bar-right.menu.dropdown(data-dropdown-menu)
         li = link_to "Sign out", destroy_user_session_path
   - else
     = active_link_to "Sign in", new_user_session_path, active: :exclusive, wrap_tag: :li
+    = active_link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2),
+      active: :exclusive, wrap_tag: :li
+
     = active_link_to "Sign up", new_user_registration_path, active: :exclusive, wrap_tag: :li

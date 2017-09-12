@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :feedbacks
   resources :invites
   resources :skills
-  devise_for :users, controllers: { registrations: "users/registrations" }
+  devise_for :users, controllers:
+             { registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :assessments, only: %i[index] do
     resources :feedbacks, shallow: true

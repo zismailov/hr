@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :trackable, :validatable
+    :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
   validates :full_name, presence: true
 
@@ -19,5 +19,17 @@ class User < ApplicationRecord
 
   def full_name_with_role
     "#{full_name} (#{role.upcase})"
+  end
+
+  def self.from_omniauth(access_token)
+    data = access_token.info
+    user = User.find_by email: data["email"]
+
+    unless user
+      user = User.create(full_name: data["name"],
+                         email: data["email"],
+                         password: Devise.friendly_token[0, 20])
+    end
+    user
   end
 end
