@@ -17,19 +17,14 @@ class AssessmentStatistics
   def skill_statistic
     result = []
     Skill.all.each do |skill|
-      result << [skill.description, skill.id, avg(skill), sum(skill)]
+      result << [skill.description, skill.id, *avg_and_sum(skill)]
     end
     result
   end
 
-  def avg(skill)
+  def avg_and_sum(skill)
     sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id)
-    (sf.sum(:score) * 1.0 / sf.count).round(2)
-  end
-
-  def sum(skill)
-    sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id)
-    sf.sum(:score)
+    [(sf.sum(:score) * 1.0 / sf.count).round(2), sf.sum(:score)]
   end
 
   def total_sum
