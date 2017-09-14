@@ -8,7 +8,10 @@ table.table
   tbody
     - users.each do |user|
       tr
-        td = user.full_name
+        td
+          = image_tag(user.profile_image_id, height: "32", width: "32")
+          '
+          = user.full_name
         td = user.email
         td = user.role
         td = user.level

@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :invites, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
-  attachment :image
+  # attachment :profile_image
 
   def full_name_with_role
     "#{full_name} (#{role.upcase})"
@@ -30,7 +30,8 @@ class User < ApplicationRecord
     unless user
       user = User.create(full_name: data["name"],
                          email: data["email"],
-                         password: Devise.friendly_token[0, 20])
+                         password: Devise.friendly_token[0, 20],
+                         profile_image_id: data["image"])
     end
     user
   end
