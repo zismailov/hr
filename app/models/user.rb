@@ -31,7 +31,7 @@ class User < ApplicationRecord
       user = User.create(full_name: data["name"],
                          email: data["email"],
                          password: Devise.friendly_token[0, 20],
-                         profile_image_id: data["image"])
+                         profile_image: data["image"])
     end
     user
   end

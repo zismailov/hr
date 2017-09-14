@@ -5,7 +5,6 @@ class User
       password
       password_confirmation
       full_name
-      profile_image
     ].freeze
 
     def sign_up
