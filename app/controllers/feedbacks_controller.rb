@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
   expose :assessment
 
   expose :feedback
-  expose :feedbacks, -> { current_user.feedbacks }
+  expose :feedbacks, -> { current_user.feedbacks.includes(:assessment) }
   expose :skill_feedbacks, -> { fetch_skill_feedbacks }
 
   def index; end

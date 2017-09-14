@@ -3,25 +3,24 @@
 
     .control-group
       label.control-label
-        | Skill
+        | Навык
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = skill_feedback.skill_id
     .control-group
       label.control-label
-        | Feedback
+        | Отзыв
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = skill_feedback.feedback_id
     .control-group
       label.control-label
-        | Score
+        | Балл
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = skill_feedback.score
   .form-actions
     = link_to(edit_skill_feedback_path(skill_feedback), class: "btn btn-primary") do
       i.fi-pencil
-      | Edit
-    '  or
-    = link_to "Back", :back
+      | Редактировать
+    = link_to "Назад", :back, class: "button hollow"

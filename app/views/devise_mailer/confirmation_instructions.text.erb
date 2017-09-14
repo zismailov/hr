@@ -1,5 +1,5 @@
-Welcome <%= @user.full_name %>!
+Добро пожаловать, <%= @user.full_name %>!
 
-You can confirm your account email through the url below:
+Для подтверждения аккаунта необходимо перейти по следующей ссылке:
 
 <%= confirmation_url(@user, confirmation_token: @token) %>

@@ -8,13 +8,13 @@
       .row
         h4 = sf.object.skill.description
         .small-6.columns
-          h5 Score:
+          h5 Балл:
         .small-6.columns
           = sf.input :score, collection: [1, 2, 3, 4, 5], label: false
       .row
         .small-12.columns
-          = sf.input :comment, as: :text, placeholder: "Please, put your feedback here!"
+          = sf.input :comment, as: :text, label: "Комментарий", placeholder: "Пожалуйста, оставьте здесь комментарий"
     .form-actions
-      = f.button :submit
-      '  or
-      = link_to "Back", :back
+      = f.button :submit, "Создать отзыв"
+      '
+      = link_to "Назад", :back, class: "button hollow"

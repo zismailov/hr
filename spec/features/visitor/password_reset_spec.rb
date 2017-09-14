@@ -5,25 +5,25 @@ RSpec.feature "Password Reset", type: :feature do
   let(:user) { create :user, :hr }
 
   def update_password
-    fill_in "Enter new password", with: new_password
-    fill_in "Confirm your new password", with: new_password
-    click_button "Update password"
+    fill_in "Пароль", with: new_password
+    fill_in "Повторите пароль", with: new_password
+    click_button "Сменить пароль"
   end
 
   scenario "Visitor resets his password" do
     visit new_user_password_path
 
-    fill_in "Enter your email address", with: user.email
-    click_button "Send me reset password instructions"
+    fill_in "Email", with: user.email
+    click_button "Отправить инструкции по сбросу пароля"
 
     open_email(user.email)
 
-    expect(current_email).to have_subject("Reset password instructions")
+    expect(current_email).to have_subject("Инструкции по сбросу пароля")
     expect(current_email).to have_body_text(user.full_name)
 
-    visit_in_email("Change my password")
+    visit_in_email("Изменить пароль")
     update_password
 
-    expect(page).to have_content("Your password has been changed successfully")
+    expect(page).to have_content("Ваш пароль изменён.")
   end
 end

@@ -3,19 +3,18 @@
 
     .control-group
       label.control-label
-        | Assessement
+        | Оценка
       .controls
         .input-xlarge.uneditable-input.integer.span7
-          = invite.assessement_id
+          = invite.assessment_id
     .control-group
       label.control-label
-        | User
+        | Пользователь
       .controls
         .input-xlarge.uneditable-input.integer.span7
           = invite.user_id
   .form-actions
     = link_to(edit_invite_path(invite), class: "btn btn-primary") do
       i.fi-pencil
-      | Edit
-    '  or
-    = link_to "Back", :back
+      | Редактировать
+    = link_to "Назад", :back, class: "button hollow"

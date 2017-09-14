@@ -1,0 +1,21 @@
+ru:
+  flash:
+    devise:
+      passwords:
+        create:
+          alert: "Пароль не может быть отправлен."
+        update:
+          alert: "Пароль не может быть изменен."
+      confirmations:
+        create:
+          alert: "Подтверждение не может быть отправлено."
+    actions:
+      create:
+        notice: '%{resource_name} был успешно создан.'
+        alert: '%{resource_name} не может быть создан.'
+      update:
+        notice: '%{resource_name} был успешно обновлен.'
+        alert: '%{resource_name} не может быть обновлен.'
+      destroy:
+        notice: '%{resource_name} был успешно удален.'
+        alert: '%{resource_name} не может быть удален.'

@@ -8,16 +8,16 @@ RSpec.feature "Sign Up", type: :feature do
     visit new_user_registration_path
 
     fill_form(:user, user_attributes)
-    click_button "Sign up"
+    click_button "Зарегистрироваться"
 
     open_email(registered_user.email)
 
-    expect(current_email).to have_subject("Confirmation instructions")
+    expect(current_email).to have_subject("Инструкции по подтверждению учётной записи")
     expect(current_email).to have_body_text(registered_user.full_name)
 
-    visit_in_email("Confirm my account")
+    visit_in_email("Подтвердить мой аккаунт")
 
-    expect(page).to have_content("Your email address has been successfully confirmed")
+    expect(page).to have_content("Ваш аккаунт подтверждён.")
     expect(page).to have_text(registered_user.full_name)
   end
 end

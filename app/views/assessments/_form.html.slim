@@ -1,14 +1,14 @@
 .scaffold-form
-  strong Schedule new assessment date for:
+  strong Запланировать новую оценку для:
   br
   strong = user.full_name
 
   = simple_form_for([user, assessment]) do |f|
     .form-inputs
       = f.hidden_field :user_id, value: user.id
-      = f.input :date
+      = f.input :date, label: "Дата"
 
     .form-actions
-      = f.button :submit
-      '  or
-      = link_to "Back", :back
+      = f.button :submit, "Назначить оценку"
+      '
+      = link_to "Назад", :back, class: "button hollow"

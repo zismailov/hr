@@ -1,14 +1,14 @@
 .row
   .middle-12.columns
-    h3 My Invites
+    h3 Мои приглашения
     table.table
       thead
-        th Employee full name
-        th Employee role
-        th Assessment
+        th Сотрудник
+        th Должность
+        th Оценка
       tbody
         - invites.each do |invite|
           tr
             td = invite.assessment.user.full_name
             td = invite.assessment.user.role
-            td = link_to "Create feedback", new_assessment_feedback_path(invite.assessment)
+            td = link_to "Создать отзыв", new_assessment_feedback_path(invite.assessment)

@@ -2,39 +2,39 @@
   .medium-12.columns
     h3 = user.full_name
     h4 Assessment: #{assessment.date}
-    = link_to "edit", edit_user_assessment_path(user, assessment)
+    = link_to "Редактировать", edit_user_assessment_path(user, assessment)
 hr
 
 .row
   .medium-12.columns
-    h4 Invited employees
+    h4 Приглашенные сотрудники
     table
       - invites.each do |invite|
         tr
           td = invite.user.full_name_with_role
-          td = link_to "remove", invite, method: :delete
+          td = link_to "Удалить", invite, method: :delete
 .row
   .medium-4.columns
     .scaffold-form
       = simple_form_for(invites.new) do |f|
         .form-inputs
           = f.hidden_field :assessment_id, value: assessment.id
-          = f.input :user_id, collection: User.sorted, label_method: :full_name_with_role
+          = f.input :user_id, collection: User.sorted, label_method: :full_name_with_role, label: "Сотрудник"
 
         .form-actions
-          = f.button :submit, class: "tiny"
+          = f.button :submit, "Пригласить", class: "tiny"
 hr
 
 .row
   .medium-12.columns
-    h4 Feedbacks:
+    h4 Отзывы:
     - feedbacks.each do |af|
-      h5 Feedback from: #{af.user.full_name_with_role}
+      h5 Отзыв от #{af.user.full_name_with_role}
       table
         thead
-          th Skill
-          th Given score
-          th Comment
+          th Навык
+          th Балл
+          th Комментарий
         tbody
           - af.skill_feedbacks.each do |sf|
             tr
@@ -43,14 +43,14 @@ hr
               td = sf.comment
 .row
   .meduim-12.columns
-    h4 Score summary
+    h4 Результат
     table
       thead
-        th Skill
+        th Навык
         - feedbacks.each do |feedback|
           th = feedback.user.full_name_with_role
-        th AVG
-        th SUMM
+        th Среднее
+        th Сумма
       tbody
         - @assessment_statistics[:skill_statistic].each do |ss|
           tr
@@ -63,5 +63,5 @@ hr
 
     strong
       .text-right
-        ' SUMM:
+        ' Сумма:
         = @assessment_statistics[:total_sum]

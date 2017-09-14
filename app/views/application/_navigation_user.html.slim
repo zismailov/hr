@@ -3,11 +3,9 @@ ul.top-bar-right.menu.dropdown(data-dropdown-menu)
     li
       a = current_user.full_name_with_role
       ul.menu
-        li = link_to "Edit profile", edit_user_registration_path
-        li = link_to "Sign out", destroy_user_session_path
+        li = link_to "Редактировать", edit_user_registration_path
+        li = link_to "Выйти", destroy_user_session_path
   - else
-    = active_link_to "Sign in", new_user_session_path, active: :exclusive, wrap_tag: :li
-    = active_link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2),
-      active: :exclusive, wrap_tag: :li
+    = active_link_to "Войти", new_user_session_path, active: :exclusive, wrap_tag: :li
 
-    = active_link_to "Sign up", new_user_registration_path, active: :exclusive, wrap_tag: :li
+    = active_link_to "Зарегистрироваться", new_user_registration_path, active: :exclusive, wrap_tag: :li

@@ -8,25 +8,25 @@ RSpec.feature "Sign In", type: :feature do
     visit new_user_session_path
 
     fill_form(:user, email: email, password: password)
-    click_button "Sign in"
+    click_button "Войти"
   end
 
   scenario "Visitor signs in with valid credentials" do
     sign_in(user.email, user.password)
 
-    expect(page).to have_content("Sign out")
+    expect(page).to have_content("Выйти")
   end
 
   scenario "Visitor signs in with invalid credentials" do
     sign_in(user.email, "wrong password")
 
-    expect(page).to have_content("Sign in")
-    expect(page).to have_content("Invalid email or password")
+    expect(page).to have_content("Войти")
+    expect(page).to have_content("Неверный email или пароль")
   end
 
   scenario "Visitor signs in with unconfirmed email address" do
     sign_in(unconfirmed_user.email, user.password)
 
-    expect(page).to have_content("You have to confirm your email address before continuing.")
+    expect(page).to have_content("Вам необходимо подтвердить ваш аккаунт, прежде чем продолжить.")
   end
 end

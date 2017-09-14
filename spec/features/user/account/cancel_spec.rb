@@ -8,14 +8,14 @@ RSpec.feature "Cancel Account", type: :feature do
   end
 
   scenario "User cancels account" do
-    click_link "Cancel my account"
+    click_link "Удалить мою страницу."
 
-    expect(page).to have_content("Sign in")
+    expect(page).to have_content("Войти")
 
-    click_link "Sign in"
+    click_link "Войти"
     fill_form(:user, current_user.attributes.slice(:email, :password))
-    click_button "Sign in"
+    click_button "Войти"
 
-    expect(page).to have_content("Invalid email or password.")
+    expect(page).to have_content("Неверный email или пароль.")
   end
 end

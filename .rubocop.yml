@@ -20,6 +20,11 @@ Style/Documentation:
 Style/MethodCalledOnDoEndBlock:
   Enabled: true
 
+Style/MethodCalledOnDoEndBlock:
+  Description: 'Avoid chaining a method call on a do...end block.'
+  StyleGuide: '#single-line-blocks'
+  Enabled: false
+
 Style/CollectionMethods:
   Enabled: true
 
@@ -34,6 +39,8 @@ Style/StringLiterals:
 Metrics/LineLength:
   Description: 'Limit lines to 120 characters.'
   Max: 120
+  Exclude:
+    - "config/**/*"
 
 Style/AlignParameters:
   EnforcedStyle: with_fixed_indentation
@@ -50,8 +57,18 @@ Style/StringMethods:
 RSpec/MultipleExpectations:
   Enabled: false
 
+Style/BlockDelimiters:
+  Exclude:
+    - 'spec/**/*'
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
 Metrics/BlockLength:
-  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - "config/**/*"
 
 RSpec/ExampleLength:
   Max: 12
