@@ -1,6 +1,6 @@
 .row
   .columns
-    h2 = title("Редактировать #{current_user.full_name}")
+    h2 = title("Редактировать профиль")
 
 .row
   .medium-5.columns
@@ -23,11 +23,12 @@
 
   .medium-5.medium-offset-1.columns.end
     h6
-      b Cancel my account
+      b Удалить аккаунт
     p
-      | Unhappy?
+      | Вы можете
       '
-      = link_to "Удалить мою страницу.",
+      = link_to "удалить свой аккаунт",
           registration_path(resource_name),
           data: { confirm: "Вы уверены?" },
           method: :delete
+      | .

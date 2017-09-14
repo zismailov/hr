@@ -15,6 +15,7 @@ ru:
           password_confirmation: Подтверждение пароля
           remember_me: Запомнить меня
         edit:
+          full_name: Имя и фамилия
           password: Пароль
           password_confirmation: Повторите пароль
     hints:

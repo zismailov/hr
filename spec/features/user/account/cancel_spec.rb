@@ -8,7 +8,7 @@ RSpec.feature "Cancel Account", type: :feature do
   end
 
   scenario "User cancels account" do
-    click_link "Удалить мою страницу."
+    click_link "удалить свой аккаунт"
 
     expect(page).to have_content("Войти")
 
