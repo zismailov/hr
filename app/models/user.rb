@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :invites, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
+  attachment :image
+
   def full_name_with_role
     "#{full_name} (#{role.upcase})"
   end

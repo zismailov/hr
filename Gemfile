@@ -45,9 +45,12 @@ gem "pundit"
 gem "rack-canonical-host"
 gem "rack-mini-profiler", require: false
 gem "rails-i18n"
+gem "refile", github: "refile/refile", require: "refile/rails"
+gem "refile-mini_magick", github: "refile/refile-mini_magick"
 gem "responders"
 gem "rollbar"
 gem "seedbank"
+gem "sinatra", github: "sinatra/sinatra", branch: "master"
 gem "stackprof"
 
 group :staging, :production do
