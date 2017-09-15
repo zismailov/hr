@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914081130) do
+ActiveRecord::Schema.define(version: 20170915074842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170914081130) do
     t.integer "assessment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "invite_id"
+    t.index ["invite_id"], name: "index_feedbacks_on_invite_id"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -34,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170914081130) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "relevance", default: true, null: false
   end
 
   create_table "skill_feedbacks", force: :cascade do |t|
@@ -73,10 +76,10 @@ ActiveRecord::Schema.define(version: 20170914081130) do
     t.integer "level", default: 1, null: false
     t.string "provider"
     t.string "uid"
-    t.string "image_id"
     t.string "profile_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "feedbacks", "invites"
 end
