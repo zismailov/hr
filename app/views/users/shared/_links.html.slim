@@ -9,7 +9,7 @@ ul.no-bullet
     li = link_to "Забыли пароль?", new_password_path(resource_name)
 
   - if devise_mapping.confirmable? && controller_name != "confirmations"
-    li = link_to "Не получили инструкции по подтверждения аккаунта?", new_confirmation_path(resource_name)
+    li = link_to "Не получили инструкции по подтверждению аккаунта?", new_confirmation_path(resource_name)
 
   - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != "unlocks"
     li = link_to "Не получили инструкции по разблокированию?", new_unlock_path(resource_name)
