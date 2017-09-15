@@ -24,16 +24,25 @@ class User < ApplicationRecord
   end
 
   def self.from_omniauth(access_token)
-    data = access_token.info
-    user = User.find_by email: data["email"]
-    user.update(full_name: data["name"], profile_image: data["image"])
+    @data = access_token.info
+    user = User.find_by email: @data["email"]
 
-    unless user
-      user = User.create(full_name: data["name"],
-                         email: data["email"],
-                         password: Devise.friendly_token[0, 20],
-                         profile_image: data["image"])
+    if user
+      update_user(user)
+    else
+      user = create_user
     end
     user
+  end
+
+  def self.update_user(user)
+    user.update(full_name: @data["name"], profile_image: @data["image"])
+  end
+
+  def self.create_user
+    User.create(full_name: @data["name"],
+                email: @data["email"],
+                password: Devise.friendly_token[0, 20],
+                profile_image: @data["image"])
   end
 end
