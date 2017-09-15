@@ -16,12 +16,16 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    feedback.invite.relevance = false
-
-    feedback.invite.save
     feedback.save
 
-    respond_with feedback
+    result = Invites::ChangeInvitationRelevance.call(invite: feedback.invite)
+
+    if result.success?
+      respond_with feedback
+    else
+      flash[:notice] = result.message
+      render :edit
+    end
   end
 
   def update
