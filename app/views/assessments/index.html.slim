@@ -14,7 +14,7 @@
           td.actions
             = link_to "Посмотреть", user_assessment_path(user, assessment), class: "button tiny"
             = link_to "Редактировать", edit_user_assessment_path(user, assessment), class: "button tiny"
-            = link_to "Удалить", user_assessment_path(user, assessment), method: :delete, class: "button tiny alert"
+            = link_to "Архивировать", user_assessment_path(user, assessment), method: :delete, class: "button tiny alert"
 
     br
     = link_to new_user_assessment_path(user), class: "button" do

@@ -1,11 +1,12 @@
 class AssessmentsController < ApplicationController
   before_action :authenticate_user!
+  # before_action :unarchived!
 
   respond_to :html
 
   expose :user
   expose :assessment
-  expose :assessments, -> { user.assessments }
+  expose :assessments, -> { user.assessments.unarchived }
   expose :invites, -> { fetch_invites }
   expose :feedbacks, -> { fetch_feedbacks }
 
@@ -27,7 +28,8 @@ class AssessmentsController < ApplicationController
   end
 
   def destroy
-    assessment.destroy
+    assessment.deleted_at = Time.zone.now
+    assessment.save
 
     redirect_to user_assessments_path(user)
   end
@@ -45,4 +47,7 @@ class AssessmentsController < ApplicationController
   def fetch_feedbacks
     assessment.feedbacks.includes(:user, skill_feedbacks: :skill)
   end
+
+  # def unarchived
+  # end
 end
