@@ -13,6 +13,6 @@ table.table
           '
           = user.full_name
         td = user.email
-        td = user.role
+        td = user.display_role
         td = user.level
         td = link_to "Посмотреть оценки", user_assessments_path(user)

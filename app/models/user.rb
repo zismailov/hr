@@ -17,11 +17,15 @@ class User < ApplicationRecord
   has_many :invites, dependent: :destroy
   has_many :feedbacks, dependent: :destroy
 
-  # attachment :profile_image
-
-  def full_name_with_role
-    "#{full_name} (#{role.upcase})"
-  end
+  ROLES = {
+    hr: "HR",
+    manager: "Менеджер",
+    lead_dev: "Lead Developer",
+    senior_dev: "Senior Developer",
+    middle_dev: "Middle Developer",
+    junior_dev: "Junior Developer",
+    employee: "Employee"
+  }.freeze
 
   def self.from_omniauth(access_token)
     @data = access_token.info

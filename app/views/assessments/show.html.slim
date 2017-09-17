@@ -16,10 +16,10 @@ hr
 .row
   .medium-4.columns
     .scaffold-form
-      = simple_form_for(invites.new) do |f|
+      = simple_form_for(assessment.invites.new) do |f|
         .form-inputs
           = f.hidden_field :assessment_id, value: assessment.id
-          = f.input :user_id, collection: User.sorted, label_method: :full_name_with_role, label: "Сотрудник"
+          = f.input :user_id, collection: users, label_method: :full_name_with_role, label: "Сотрудник"
 
         .form-actions
           = f.button :submit, "Пригласить", class: "tiny"
