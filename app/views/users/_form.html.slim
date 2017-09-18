@@ -1,0 +1,12 @@
+.scaffold-form
+  = simple_form_for(user) do |f|
+    .form-inputs
+      h6 Должность
+      = f.collection_select(:role, User::ROLES, :first, :last)
+      h6 Уровень
+      = f.input :level, collection: [1, 2, 3], label: false
+
+    .form-actions
+      = f.button :submit, "Сохранить"
+      '
+      = link_to "Назад", :back, class: "button hollow"

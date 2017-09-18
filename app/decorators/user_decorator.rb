@@ -1,5 +1,5 @@
 class UserDecorator < Draper::Decorator
-  delegate :id, :full_name, :email, :level, :profile_image
+  delegate :id, :full_name, :email, :level, :profile_image, :role
 
   decorates_association :invites
 
