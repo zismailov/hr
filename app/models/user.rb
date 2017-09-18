@@ -2,7 +2,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
 
-  validates :full_name, presence: true
+  validates :full_name, :role, :level, presence: true
 
   scope :sorted, -> { order(full_name: :asc) }
 
