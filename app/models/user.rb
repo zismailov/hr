@@ -25,7 +25,7 @@ class User < ApplicationRecord
     senior_dev: "Senior Developer",
     middle_dev: "Middle Developer",
     junior_dev: "Junior Developer",
-    employee: "Employee"
+    employee: "Сотрудник"
   }.freeze
 
   def self.from_omniauth(access_token)

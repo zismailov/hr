@@ -42,7 +42,7 @@ ru:
         unlock: "Разблокировать мой аккаунт"
       welcome: "Добро пожаловать, %{email}!"
     omniauth_callbacks:
-      success: "Вошли."
+      success: "Вы успешно вошли"
     passwords:
       edit:
         change_password: "Изменить пароль"
