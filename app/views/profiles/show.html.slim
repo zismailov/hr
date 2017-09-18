@@ -1,21 +1,22 @@
 .row
-  .medium-2.columns
-    = image_tag(user.profile_image, size: "100", class: "image-circle")
-  .medium-10.columns
-    h3
-      = user.full_name
-    ' Email:
-    = user.email
-    br
-    ' Должность:
-    = user.display_role
-    br
-    ' Уровень:
-    = user.level
+  .medium-12.columns
+    .row
+      .medium-2.columns
+        = image_tag(user.profile_image, size: "140", class: "image-circle")
+      .medium-10.columns
+        h3
+          = user.full_name
+        ' Email:
+        = user.email
+        br
+        ' Должность:
+        = user.display_role
+        br
+        ' Уровень:
+        = user.level
 
     - if policy(user).manage?
       .row
-        .medium-5.columns
+        .medium-7.columns
           hr
           h5 Изменить должность
-          = render "users/form"
