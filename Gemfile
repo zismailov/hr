@@ -72,7 +72,6 @@ group :development, :test do
   gem "awesome_print"
   gem "brakeman", require: false
   gem "bundler-audit", require: false
-  gem "coffeelint"
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "faker"
@@ -83,8 +82,6 @@ group :development, :test do
   gem "rspec-rails", "~> 3.4"
   gem "rubocop", require: false
   gem "rubocop-rspec", require: false
-  gem "scss_lint", require: false
-  gem "slim_lint", require: false
 end
 
 group :development do

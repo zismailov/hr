@@ -85,10 +85,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    coffeelint (1.16.0)
-      coffee-script
-      execjs
-      json
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -352,9 +348,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    scss_lint (0.54.0)
-      rake (>= 0.9, < 13)
-      sass (~> 3.4.20)
     seedbank (0.4.0)
     shoulda-matchers (3.1.2)
       activesupport (>= 4.0.0)
@@ -378,11 +371,6 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (~> 3.0)
-    slim_lint (0.13.0)
-      rake (>= 10, < 13)
-      rubocop (>= 0.49.0)
-      slim (~> 3.0)
-      sysexits (~> 1.1)
     slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
@@ -400,7 +388,6 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     stackprof (0.2.10)
-    sysexits (1.2.0)
     temple (0.8.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
@@ -444,7 +431,6 @@ DEPENDENCIES
   capybara
   codeclimate-test-reporter
   coffee-rails (~> 4.2)
-  coffeelint
   database_cleaner
   decent_decoration
   decent_exposure
@@ -495,14 +481,12 @@ DEPENDENCIES
   rubocop
   rubocop-rspec
   sass-rails (~> 5.0)
-  scss_lint
   seedbank
   shoulda-matchers
   simple_form
   skim
   slim
   slim-rails
-  slim_lint
   spring
   spring-commands-rspec
   stackprof
