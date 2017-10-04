@@ -15,4 +15,6 @@ table.table
         td = user.email
         td = user.display_role
         td = user.level
-        td = link_to "Посмотреть оценки", user_assessments_path(user)
+        td
+          - if policy(user).show?
+            = link_to "Посмотреть оценки", user_assessments_path(user)
