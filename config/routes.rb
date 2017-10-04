@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :invites
   resources :skills
 
-  resources :profiles, only: %i[show]
   resources :invites, only: %i[create destroy]
 
   devise_for :users, controllers:
@@ -14,7 +13,7 @@ Rails.application.routes.draw do
     resources :feedbacks, shallow: true
   end
 
-  resources :users, only: %i[index update] do
+  resources :users, only: %i[show index update] do
     resources :assessments
   end
 
