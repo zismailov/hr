@@ -7,6 +7,10 @@ class AssessmentPolicy < ApplicationPolicy
     hr?
   end
 
+  def update?
+    hr?
+  end
+
   def manage?
     hr?
   end

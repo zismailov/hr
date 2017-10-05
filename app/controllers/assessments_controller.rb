@@ -30,6 +30,8 @@ class AssessmentsController < ApplicationController
   end
 
   def update
+    authorize assessment
+
     assessment.update_attributes(assessment_params)
 
     redirect_to user_assessments_path(user)
