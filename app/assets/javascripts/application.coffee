@@ -10,12 +10,12 @@
 # Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 # about supported directives.
 
-#= require DataTables
 #= require jquery
 #= require jquery_ujs
 #= require foundation
 #= require current_user
 #= require skim
+#= require DataTables
 #= require_tree ../templates
 #= require_tree .
 

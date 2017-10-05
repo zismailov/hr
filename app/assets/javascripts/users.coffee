@@ -1,3 +1,3 @@
 $(document).ready(() ->
-  $("table").dataTable();
+  $(".data-table").dataTable()
 )
