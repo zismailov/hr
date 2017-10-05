@@ -1,6 +1,5 @@
 class AssessmentsController < ApplicationController
   before_action :authenticate_user!
-  # before_action :unarchived!
 
   respond_to :html
 
@@ -19,6 +18,10 @@ class AssessmentsController < ApplicationController
 
   def index
     redirect_to root_path unless policy(user).show?
+  end
+
+  def new
+    redirect_to root_path unless policy(assessment).manage?
   end
 
   def create
@@ -54,7 +57,4 @@ class AssessmentsController < ApplicationController
   def fetch_feedbacks
     assessment.feedbacks.includes(:user, skill_feedbacks: :skill)
   end
-
-  # def unarchived
-  # end
 end

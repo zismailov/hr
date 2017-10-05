@@ -1,3 +1,5 @@
 class AssessmentPolicy < ApplicationPolicy
-  def unarchived?; end
+  def manage?
+    user.role == "hr"
+  end
 end
