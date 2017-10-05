@@ -93,5 +93,8 @@ group :development do
   gem "slim-rails"
   gem "spring"
   gem "spring-commands-rspec"
-  gem "web-console", ">= 3.3.0"
+end
+
+source "https://rails-assets.org" do
+  gem "rails-assets-DataTables"
 end
