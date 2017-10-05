@@ -1,5 +1,5 @@
 class AssessmentPolicy < ApplicationPolicy
-  def manage?
+  def create?
     user.role == "hr"
   end
 end

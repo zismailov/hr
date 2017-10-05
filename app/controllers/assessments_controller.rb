@@ -25,6 +25,8 @@ class AssessmentsController < ApplicationController
   end
 
   def create
+    authorize assessment
+
     assessment.user = user
     assessment.save
 
