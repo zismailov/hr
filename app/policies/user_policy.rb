@@ -1,13 +1,13 @@
 class UserPolicy < ApplicationPolicy
-  def manage?
-    user.role == "hr"
-  end
-
   def show?
-    user.role == "hr" || record == user
+    manage?
   end
 
   def index?
-    user.role == "hr" || record == user
+    manage?
+  end
+
+  def manage?
+    hr? || record == user
   end
 end
