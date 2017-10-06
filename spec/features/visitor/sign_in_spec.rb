@@ -7,7 +7,8 @@ RSpec.feature "Sign In", type: :feature do
   def sign_in(email, password)
     visit new_user_session_path
 
-    fill_form(:user, email: email, password: password)
+    fill_in(:user_email, with: email)
+    fill_in(:user_password, with: password)
     click_button "Войти"
   end
 

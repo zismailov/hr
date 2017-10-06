@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20170917090136) do
     t.integer "level", default: 1, null: false
     t.string "provider"
     t.string "uid"
+    t.string "image_id"
     t.string "profile_image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

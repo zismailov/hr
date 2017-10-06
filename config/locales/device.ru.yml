@@ -50,7 +50,7 @@ ru:
         new_password: "Новый пароль"
       new:
         email: "E-mail"
-        forgot_password: "Забыли пароль?"
+        forgot_password: "Восстановление пароля"
         no_account: "Аккаунт с таким E-mail не существует"
         reset_password: "Сброс пароля"
         send_password_instructions: "Отправить мне инструкции по сбросу пароля"
@@ -72,7 +72,7 @@ ru:
       signed_out: "Вышли."
     shared:
       links:
-        forgot_your_password: "Забыли пароль?"
+        forgot_your_password: "Восстановление пароля"
         receive_confirmation: "Не получили инструкции по подтверждению?"
         receive_unlock: "Не получили инструкции по разблокированию?"
         sign_in: "Войти"
