@@ -32,11 +32,7 @@ class User < ApplicationRecord
     @data = access_token.info
     user = User.find_by email: @data["email"]
 
-    if user
-      update_user(user)
-    else
-      user = create_user
-    end
+    user ? update_user(user) : user = create_user
     user
   end
 
@@ -48,6 +44,7 @@ class User < ApplicationRecord
     User.create(full_name: @data["name"],
                 email: @data["email"],
                 password: Devise.friendly_token[0, 20],
+                confirmed_at: Time.zone.now,
                 profile_image: @data["image"])
   end
 end

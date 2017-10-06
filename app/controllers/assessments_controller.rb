@@ -3,9 +3,9 @@ class AssessmentsController < ApplicationController
 
   respond_to :html
 
-  expose :user
-  expose :assessment
-  expose :assessments, -> { user.assessments.unarchived }
+  expose_decorated :user
+  expose_decorated :assessment
+  expose_decorated :assessments, -> { user.assessments.sorted_by_date }
 
   expose_decorated :users, -> { User.sorted }
   expose_decorated :invites, -> { fetch_invites }

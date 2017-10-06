@@ -19,8 +19,6 @@ html class="no-js" lang="en"
     main.container
       = yield
 
-    = render "footer"
-
     javascript:
       App.currentUserData = #{{current_user.to_json}};
     = javascript_include_tag :application

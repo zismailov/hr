@@ -1,14 +1,10 @@
-.scaffold-form
-  strong Запланировать новую оценку для:
-  br
-  strong = user.full_name
+h3 Запланировать оценку для:
+h4 = user.full_name
+h4 = user.info
 
-  = simple_form_for([user, assessment]) do |f|
-    .form-inputs
-      = f.hidden_field :user_id, value: user.id
-      = f.input :date, label: "Дата"
-
-    .form-actions
-      = f.button :submit, "Назначить оценку"
-      '
-      = link_to "Назад", :back, class: "button hollow"
+= simple_form_for([user, assessment.to_model]) do |f|
+  .form-inputs
+    = f.input :date, label: "Дата оценки"
+  .form-actions
+    => f.button :submit, "Запланировать оценку"
+    = link_to "Назад", :back, class: "button hollow"
