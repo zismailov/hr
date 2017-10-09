@@ -3,5 +3,4 @@
 set -e
 
 bin/rspec spec
-bin/rake jasmine:ci
 bin/quality

@@ -75,8 +75,6 @@ group :development, :test do
   gem "dotenv-rails"
   gem "factory_girl_rails"
   gem "faker"
-  gem "jasmine", "> 2.0"
-  gem "jasmine-jquery-rails"
   gem "pry"
   gem "pry-rails"
   gem "rspec-rails", "~> 3.4"
