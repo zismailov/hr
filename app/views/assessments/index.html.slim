@@ -5,8 +5,8 @@
     h3 = user.full_name
     h5 = user.info
   .medium-4.columns
-    = link_to "Запланировать новую оценку", new_user_assessment_path(user), class: "button"
-
+    - if policy(assessment).manage?
+      = link_to "Запланировать новую оценку", new_user_assessment_path(user), class: "button"
 .row
   .medium-12.columns
     - if user.assessments.any?
@@ -15,14 +15,18 @@
           tr
             th Дата
             th Действия
-
         - assessments.each do |assessment|
           tr
             td= assessment.date
             td.actions
-              => link_to "Посмотреть", user_assessment_path(user, assessment), class: "button tiny"
-              => link_to "Редактировать", edit_user_assessment_path(user, assessment), class: "button tiny"
-              = link_to "Удалить", user_assessment_path(user, assessment), method: :delete, class: "button tiny alert"
+              => link_to "Посмотреть", user_assessment_path(user, assessment),
+                                       class: "button tiny"
+              - if policy(assessment).manage?
+                => link_to "Редактировать", edit_user_assessment_path(user, assessment),
+                                            class: "button tiny"
+                = link_to "Архивировать", user_assessment_path(user, assessment),
+                                          method: :delete,
+                                          class: "button tiny alert"
     - else
       .text-center
         h5 Ни одной оценки пока не запланировано!
