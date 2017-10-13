@@ -13,6 +13,7 @@ gem "autoprefixer-rails"
 gem "coffee-rails", "~> 4.2"
 gem "foundation-icons-sass-rails"
 gem "foundation-rails"
+gem "jquery-datatables-rails", "~> 3.4.0"
 gem "jquery-rails"
 gem "premailer-rails"
 gem "sass-rails", "~> 5.0"
@@ -89,10 +90,4 @@ group :development do
   gem "listen"
   gem "rails-erd"
   gem "slim-rails"
-  gem "spring"
-  gem "spring-commands-rspec"
-end
-
-source "https://rails-assets.org" do
-  gem "rails-assets-DataTables"
 end

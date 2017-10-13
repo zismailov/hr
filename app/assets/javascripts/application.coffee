@@ -15,11 +15,13 @@
 #= require foundation
 #= require current_user
 #= require skim
-#= require DataTables
+#= require dataTables/jquery.dataTables
+#= require dataTables/jquery.dataTables.foundation
 #= require_tree ../templates
 #= require_tree .
 
 $ ->
   $(document).foundation()
 
-  $(".data-table").dataTable()
+  $(".data-table").DataTable
+  responsive: true
