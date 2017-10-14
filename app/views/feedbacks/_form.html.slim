@@ -7,14 +7,15 @@
     = f.simple_fields_for :skill_feedbacks do |sf|
       = sf.input :skill_id, value: sf.object.skill_id, as: :hidden
       .row
-        h4 = sf.object.skill.description
-        .small-6.columns
-          h5 Балл:
-        .small-6.columns
-          = sf.input :score, collection: [1, 2, 3, 4, 5], label: false
+        .small-8.columns
+          h5 = sf.object.skill.description
+        .small-4.columns.text-right
+          = sf.input :score, collection: [5, 4, 3, 0], label: false, as: :radio_buttons
       .row
         .small-12.columns
-          = sf.input :comment, as: :text, label: "Комментарий", placeholder: "Пожалуйста, оставьте здесь комментарий"
+          = sf.input :comment, as: :text, label: false, input_html: { rows: 4 },
+            placeholder: "Пожалуйста, оставьте здесь комментарий"
+      br
     .form-actions
       = f.button :submit, "Создать отзыв"
       '
