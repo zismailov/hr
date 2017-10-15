@@ -1,9 +1,8 @@
 .scaffold-form
   = simple_form_for(invite) do |f|
     .form-inputs
-      = f.input :assessement_id
-      = f.input :user_id
+      = f.hidden_field :assessment_id, value: assessment.id
+      = f.input :user_id, collection: users, label_method: :full_name_with_role, label: "Сотрудник"
 
     .form-actions
-      = f.button :submit, "Пригласить"
-      = link_to "Назад", :back, class: "button hollow"
+      = f.button :submit, "Пригласить", class: "tiny"

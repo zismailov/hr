@@ -15,7 +15,7 @@
         ' Уровень:
         = user.level
 
-    - if policy(user).manage?
+    - if policy(user).update?
       .row
         .medium-7.columns
           hr

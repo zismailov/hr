@@ -8,7 +8,7 @@
 
       - feedbacks.each do |feedback|
         tr
-          td= feedback.assessment.user.full_name
+          td = feedback.assessment.user.full_name
           td.actions
             = link_to(feedback, class: "btn") do
               i.fi-eye

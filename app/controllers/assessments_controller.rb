@@ -3,9 +3,11 @@ class AssessmentsController < ApplicationController
 
   respond_to :html
 
+  expose :invite, -> { Invite.new }
+
   expose_decorated :user
   expose_decorated :assessment
-  expose_decorated :assessments, -> { user.assessments.sorted_by_date }
+  expose_decorated :assessments, -> { fetch_assessments }
 
   expose_decorated :users, -> { User.sorted }
   expose_decorated :invites, -> { fetch_invites }
@@ -38,7 +40,8 @@ class AssessmentsController < ApplicationController
   end
 
   def destroy
-    assessment.destroy
+    assessment.deleted_at = Time.zone.now
+    assessment.save
 
     redirect_to user_assessments_path(user)
   end
@@ -47,6 +50,10 @@ class AssessmentsController < ApplicationController
 
   def assessment_params
     params.require(:assessment).permit(:user_id, :date)
+  end
+
+  def fetch_assessments
+    user.assessments.unarchived.sorted_by_date
   end
 
   def fetch_invites

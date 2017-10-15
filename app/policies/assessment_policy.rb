@@ -3,6 +3,10 @@ class AssessmentPolicy < ApplicationPolicy
     hr? || record.user == user
   end
 
+  def new?
+    hr?
+  end
+
   def create?
     hr?
   end
