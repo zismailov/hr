@@ -2,6 +2,7 @@
   ul.menu
     li = link_to "HR Tool", root_path
     - if user_signed_in?
-      = active_link_to "Сотрудники", root_path, active: :exclusive, wrap_tag: :li
+      = active_link_to "Сотрудники", users_path, active: :exclusive, wrap_tag: :li
+      = active_link_to "Мои оценки", user_assessments_path(current_user), active: :exclusive, wrap_tag: :li
       = active_link_to "Мои приглашения", invites_path, active: :exclusive, wrap_tag: :li
       = active_link_to "Мои отзывы", feedbacks_path, active: :exclusive, wrap_tag: :li
