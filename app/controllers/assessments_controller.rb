@@ -31,6 +31,10 @@ class AssessmentsController < ApplicationController
     redirect_to user_assessments_path(user)
   end
 
+  def edit
+    authorize assessment
+  end
+
   def update
     authorize assessment
 

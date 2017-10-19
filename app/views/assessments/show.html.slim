@@ -1,8 +1,9 @@
 .row
   .medium-12.columns
     h3 = user.full_name
-    h4 Assessment: #{assessment.date}
-    = link_to "Редактировать", edit_user_assessment_path(user, assessment)
+    h4 Оценка: #{assessment.date}
+    - if AssessmentPolicy.new(current_user).edit?
+      = link_to "Редактировать", edit_user_assessment_path(user, assessment)
 hr
 
 .row
@@ -23,22 +24,28 @@ hr
 .row
   .medium-12.columns
     h4 Отзывы:
-    - feedbacks.each do |af|
-      h5 Отзыв от #{af.user.full_name_with_role}
-      table
-        thead
-          th Навык
-          th Балл
-          th Комментарий
-        tbody
-          - af.skill_feedbacks.each do |sf|
-            tr
-              td = sf.skill.description
-              td = sf.score
-              td = sf.comment
+    - if feedbacks.any?
+      - feedbacks.each do |af|
+        h5 Отзыв от #{af.user.full_name_with_role}
+        table
+          thead
+            th Навык
+            th Балл
+            th Комментарий
+          tbody
+            - af.skill_feedbacks.each do |sf|
+              tr
+                td = sf.skill.description
+                td = sf.score
+                td = sf.comment
+    - else
+      h5 Отзывов пока нет
 .row
   .meduim-12.columns
     h4 Результат
+    .text-center
+      h3 Общая сумма баллов: #{@assessment_statistics[:total_sum]}
+
     table
       thead
         th Навык
@@ -54,9 +61,3 @@ hr
               td = feedback.skill_feedbacks.find_by(skill_id: ss[1]).score
             td = ss[2]
             td = ss[3]
-
-
-    strong
-      .text-right
-        ' Сумма:
-        = @assessment_statistics[:total_sum]

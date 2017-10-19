@@ -11,6 +11,10 @@ class AssessmentPolicy < ApplicationPolicy
     hr?
   end
 
+  def edit?
+    hr?
+  end
+
   def update?
     hr?
   end

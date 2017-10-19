@@ -9,6 +9,6 @@ module Authorization
   private
 
   def user_not_authorized
-    redirect_to(root_path)
+    redirect_to :back, alert: "Извините, запрошенная функция недоступна."
   end
 end

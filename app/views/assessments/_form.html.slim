@@ -1,7 +1,3 @@
-h3 Запланировать оценку для:
-h4 = user.full_name
-h4 = user.info
-
 = simple_form_for([user, assessment.to_model]) do |f|
   .form-inputs
     = f.input :date, label: "Дата оценки"
