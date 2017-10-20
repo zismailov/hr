@@ -2,17 +2,22 @@ module Invites
   class ChangeInvitationRelevance
     include Interactor
 
-    delegate :invite, to: :context
+    delegate :feedback, to: :context
+    delegate :invite, to: :feedback
 
     def call
-      change_relevance
+      check_feedback
     end
 
     private
 
+    def check_feedback
+      feedback.valid? ? change_relevance : context.fail!(message: "Все поля должны быть заполнены")
+    end
+
     def change_relevance
       invite.relevance = false
-      invite.save || context.fail!
+      invite.save || context.fail!(message: "Статус не может быть изменен")
     end
   end
 end

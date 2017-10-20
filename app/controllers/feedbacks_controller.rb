@@ -18,7 +18,7 @@ class FeedbacksController < ApplicationController
   def create
     feedback.save
 
-    result = Invites::ChangeInvitationRelevance.call(invite: feedback.invite)
+    result = Invites::ChangeInvitationRelevance.call(feedback: feedback)
 
     if result.success?
       respond_with feedback
