@@ -19,4 +19,8 @@ class UserDecorator < Draper::Decorator
   def info
     "#{display_role}, Уровень: #{object.level}"
   end
+
+  def next_assessment_date
+    object.assessments.sorted_by_date.first.date.strftime("%d.%m.%Y")
+  end
 end

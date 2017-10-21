@@ -6,6 +6,7 @@ table.table.data-table.responsive.no-wrap
       th Должность
       th Уровень
       th Оценки
+      th Следующая оценка
   tbody
     - users.each do |user|
       tr
@@ -19,3 +20,6 @@ table.table.data-table.responsive.no-wrap
         td
           - if policy(user).show?
             = link_to "Посмотреть оценки", user_assessments_path(user)
+        td
+          - if user.assessments.any?
+            = user.next_assessment_date

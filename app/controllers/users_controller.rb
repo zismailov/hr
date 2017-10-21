@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   expose_decorated :user
-  expose_decorated :users, -> { User.sorted }
+  expose_decorated :users, -> { fetch_users }
 
   def index; end
 
@@ -17,5 +17,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:role, :level)
+  end
+
+  def fetch_users
+    User.sorted.includes(:assessments)
   end
 end
