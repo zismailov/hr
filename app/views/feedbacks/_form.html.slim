@@ -1,8 +1,5 @@
 .scaffold-form
   = simple_form_for([assessment, feedback]) do |f|
-    = f.hidden_field :user_id, value: current_user.id
-    = f.hidden_field :assessment_id, value: assessment.id
-    = f.hidden_field :invite_id, value: assessment.invites.find_by(user_id: current_user).id
     .form-inputs
     = f.simple_fields_for :skill_feedbacks do |sf|
       = sf.input :skill_id, value: sf.object.skill_id, as: :hidden
@@ -18,5 +15,3 @@
       br
     .form-actions
       = f.button :submit, "Создать отзыв"
-      '
-      = link_to "Назад", :back, class: "button hollow"

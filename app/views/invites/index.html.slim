@@ -11,4 +11,8 @@
           tr
             td = invite.assessment.user.full_name
             td = invite.assessment.user.display_role
-            td = link_to "Создать отзыв", new_assessment_feedback_path(invite.assessment)
+            - if invite.feedback
+              td = link_to "Смотреть", invite.feedback
+              td = link_to "Изменить", edit_feedback_path(invite.feedback)
+            - else
+              td = link_to "Создать отзыв", new_assessment_feedback_path(invite.assessment)

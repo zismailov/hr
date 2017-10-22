@@ -10,7 +10,7 @@ Rails.application.routes.draw do
              { registrations: "users/registrations", omniauth_callbacks: "users/omniauth_callbacks" }
 
   resources :assessments, only: %i[index] do
-    resources :feedbacks, shallow: true
+    resources :feedbacks
   end
 
   resources :users, only: %i[show index update] do
