@@ -38,10 +38,7 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:user_id,
-      :assessment_id,
-      :invite_id,
-      "skill_feedbacks_attributes": %i[score skill_id comment])
+    params.require(:feedback).permit("skill_feedbacks_attributes": %i[id score skill_id comment])
   end
 
   def fetch_skill_feedbacks
