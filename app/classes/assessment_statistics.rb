@@ -8,7 +8,7 @@ class AssessmentStatistics
   def results
     {
       skill_statistic: skill_statistic,
-      total_sum: total_sum
+      total_avg_sum: total_avg_sum
     }
   end
 
@@ -29,7 +29,12 @@ class AssessmentStatistics
     [(sf.sum(:score) * 1.0 / sf.count).round(2), sf.sum(:score)]
   end
 
-  def total_sum
-    SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", @assessment.id).sum(:score)
+  def total_avg_sum
+    sum = 0
+    Skill.all.each do |skill|
+      sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id)
+      sum += (sf.sum(:score) * 1.0 / sf.count).round(2)
+    end
+    sum
   end
 end
