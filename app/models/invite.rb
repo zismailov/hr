@@ -4,6 +4,4 @@ class Invite < ApplicationRecord
   has_one :feedback, dependent: :destroy
 
   validates :user, :assessment, presence: true
-
-  scope :actual, -> { where(relevance: true) }
 end

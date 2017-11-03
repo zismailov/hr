@@ -15,6 +15,7 @@ class AssessmentsController < ApplicationController
 
   def show
     authorize assessment
+    @assessment_comments = AssessmentComments.new(assessment).results
     @assessment_statistics = AssessmentStatistics.new(assessment).results
   end
 

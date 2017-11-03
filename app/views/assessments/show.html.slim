@@ -25,19 +25,16 @@ hr
   .medium-12.columns
     h4 Отзывы:
     - if feedbacks.any?
-      - feedbacks.each do |af|
-        h5 Отзыв от #{af.user.full_name_with_role}
-        table
-          thead
-            th Навык
-            th Балл
-            th Комментарий
-          tbody
-            - af.skill_feedbacks.each do |sf|
-              tr
-                td = sf.skill.description
-                td = sf.score
-                td = sf.comment
+      table
+        thead
+          th Навык
+          - @assessment_comments[:head].each do |h|
+            th = h
+        tbody
+          - @assessment_comments[:body].each do |b|
+            tr
+              - b.each do |bb|
+                td = bb
     - else
       h5 Отзывов пока нет
 .row

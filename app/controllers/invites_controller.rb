@@ -27,6 +27,6 @@ class InvitesController < ApplicationController
   end
 
   def fetch_invites
-    current_user.invites.actual.includes(assessment: :user)
+    current_user.invites.includes(:feedback, assessment: :user)
   end
 end
