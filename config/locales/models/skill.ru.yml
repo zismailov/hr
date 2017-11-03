@@ -1,0 +1,18 @@
+ru:
+  activerecord:
+    models:
+      skill: Навык
+    attributes:
+      skill:
+        description: Навык
+  simple_form:
+    labels:
+      skill:
+        new:
+          description: Навык
+        edit:
+          description: Навык
+    hints:
+      skill:
+        edit:
+          description: Навык

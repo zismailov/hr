@@ -1,27 +1,18 @@
-table.table.table-striped
-  thead
-    tr
-        th Description
-        th Actions
+.row
+  .medium-12.columns
+    table.table.table-striped
+      thead
+        tr
+          th Навык
+          th Дейсвтия
+      tbody
+        - skills.each do |skill|
+          tr
+            td = skill.description
+            td.actions
+              => link_to "Показать", skill, class: "button tiny"
+              => link_to "Редактировать", edit_skill_path(skill), class: "button tiny"
+              = link_to "Архивировать", skill, method: :delete, data: { confirm: "Вы уверены?" },
+                                        class: "button tiny alert"
 
-  - skills.each do |skill|
-    tr
-      td= skill.description
-      td.actions
-        = link_to(skill, class: "btn") do
-          i.fi-eye
-          |  Show
-        = link_to(edit_skill_path(skill), class: "btn") do
-          i.fi-pencil
-          |  Edit
-        = link_to(skill, method: :delete, class: "btn btn-danger", data: { confirm: "Вы уверены?" }) do
-          i.fi-trash
-          |  Delete
-
-.paginator
-  = paginate(skills)
-
-br
-= link_to new_skill_path, class: "btn btn-primary" do
-  i.fi-plus
-  |  New Skill
+    = link_to "Добавить навык", new_skill_path, class: "button"

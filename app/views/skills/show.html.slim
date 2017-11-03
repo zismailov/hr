@@ -1,15 +1,13 @@
-.show-item
-  .well.skill.form-horizontal
+.row
+  .medium-12.columns
+    h3
+      ' Навык:
+      = skill.description
+    | Описание:
 
-    .control-group
-      label.control-label
-        | Description
-      .controls
-        .input-xlarge.uneditable-input.text.span7
-          = skill.description
-  .form-actions
-    = link_to(edit_skill_path(skill), class: "btn btn-primary") do
-      i.fi-pencil
-      | Edit
-    '  or
-    = link_to "Назад", :back
+    br
+    br
+    br
+
+    => link_to "Редактировать", edit_skill_path(skill), class: "button"
+    = link_to "Архивировать", skill, method: :delete, data: { confirm: "Вы уверены?" }, class: "button alert"

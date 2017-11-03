@@ -1,7 +1,7 @@
 ru:
-  active_record:
+  activerecord:
     models:
-      user:
+      user: Пользователь
     attributes:
       user:
         full_name: Имя и фамилия

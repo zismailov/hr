@@ -17,6 +17,8 @@ class SkillsController < ApplicationController
   end
 
   def destroy
+    skill.deleted_at = Time.zone.now
+
     skill.destroy
     respond_with(skill)
   end
