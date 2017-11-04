@@ -1,7 +1,7 @@
 require "rails_helper"
 
 describe AssessmentStatistics do
-  let!(:assessment) { create :assessment }
+  let!(:assessment) { create :assessment, :apply_for_middle_dev }
   let(:feedback_1) { create :feedback, assessment: assessment }
   let(:feedback_2) { create :feedback, assessment: assessment }
   let(:skill_1) { create :skill }

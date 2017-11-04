@@ -7,4 +7,8 @@ class AssessmentDecorator < ApplicationDecorator
   def date
     object.date.strftime("%e %B %Y")
   end
+
+  def info
+    "Претендуемая должность: #{User::ROLES[object.role.to_sym]}"
+  end
 end

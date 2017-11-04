@@ -54,7 +54,7 @@ class AssessmentsController < ApplicationController
   private
 
   def assessment_params
-    params.require(:assessment).permit(:user_id, :date)
+    params.require(:assessment).permit(:user_id, :date, :role)
   end
 
   def fetch_assessments

@@ -1,7 +1,11 @@
 .row
   .medium-12.columns
     h3 = user.full_name
-    h4 Оценка: #{assessment.date}
+    h5
+      ' Оценка:
+      = assessment.date
+      br
+      = assessment.info
     - if AssessmentPolicy.new(current_user).edit?
       = link_to "Редактировать", edit_user_assessment_path(user, assessment)
 hr
@@ -41,7 +45,7 @@ hr
   .meduim-12.columns
     h4 Результат
     .text-center
-      h3 Общая сумма баллов: #{@assessment_statistics[:total_avg_sum]}
+      h3 Общая сумма баллов: #{@assessment_statistics[:total_sum]}
 
     table
       thead

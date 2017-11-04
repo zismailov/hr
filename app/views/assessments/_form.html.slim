@@ -1,6 +1,9 @@
 = simple_form_for([user, assessment.to_model]) do |f|
   .form-inputs
-    = f.input :date, label: "Дата оценки"
+    h6 Дата оценки
+    = f.input :date, label: false
+    h6 Претендуемая должность
+    = f.collection_select(:role, User::ROLES, :first, :last)
   .form-actions
     => f.button :submit, "Запланировать оценку"
     = link_to "Назад", :back, class: "button hollow"
