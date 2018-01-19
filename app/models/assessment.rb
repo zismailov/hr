@@ -6,5 +6,6 @@ class Assessment < ApplicationRecord
 
   validates :user, :date, :role, presence: true
 
+  scope :active, -> { where(deleted_at: nil) }
   scope :sorted_by_date, -> { order(date: :asc) }
 end

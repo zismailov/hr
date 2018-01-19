@@ -3,11 +3,11 @@ class AssessmentPolicy < ApplicationPolicy
     hr? || record.user == user
   end
 
-  def new?
+  def create?
     hr?
   end
 
-  def create?
+  def new?
     hr?
   end
 
@@ -16,6 +16,10 @@ class AssessmentPolicy < ApplicationPolicy
   end
 
   def update?
+    hr?
+  end
+
+  def destroy?
     hr?
   end
 

@@ -9,7 +9,8 @@ RSpec.feature "Sign In", type: :feature do
 
     fill_in(:user_email, with: email)
     fill_in(:user_password, with: password)
-    click_button "Войти"
+
+    click_button "Log in"
   end
 
   scenario "Visitor signs in with valid credentials" do
@@ -29,5 +30,27 @@ RSpec.feature "Sign In", type: :feature do
     sign_in(unconfirmed_user.email, user.password)
 
     expect(page).to have_content("Вам необходимо подтвердить ваш аккаунт, прежде чем продолжить.")
+  end
+
+  scenario "Visitor signs in via Google" do
+    stub_omniauth
+    visit new_user_session_path
+
+    click_link "Войти с помощью Google"
+
+    expect(page).to have_link("Выйти")
+  end
+
+  def stub_omniauth
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new(
+      provider: "google_oauth2",
+      uid: "123 456 789",
+      info: {
+        name: "John Doe",
+        email: "john@company_name.com",
+        image: "/spec/images/default_avatar.png"
+      }
+    )
   end
 end

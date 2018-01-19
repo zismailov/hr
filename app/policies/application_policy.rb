@@ -7,6 +7,6 @@ class ApplicationPolicy
   end
 
   def hr?
-    user && user.role == "hr"
+    user.role == "hr"
   end
 end

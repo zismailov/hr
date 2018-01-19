@@ -1,4 +1,4 @@
-class UserDecorator < Draper::Decorator
+class UserDecorator < ApplicationDecorator
   delegate :id, :full_name, :email, :level, :profile_image, :role
 
   decorates_association :invites

@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :invite do
-    assessement
+    assessment
     user
   end
 end

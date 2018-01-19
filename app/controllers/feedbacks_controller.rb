@@ -5,7 +5,7 @@ class FeedbacksController < ApplicationController
 
   expose :feedback
   expose :feedbacks, -> { current_user.feedbacks.includes(assessment: :user) }
-  expose :skill_feedbacks, -> { fetch_skill_feedbacks }
+  expose :skill_feedbacks, -> { feedback.skill_feedbacks.includes(:skill) }
 
   def index; end
 
@@ -16,13 +16,11 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    feedback.user = current_user
-    feedback.assessment = assessment
-    feedback.invite = assessment.invites.find_by(user: current_user)
-
-    feedback.save
-
-    respond_with feedback
+    result = Feedbacks::Create.call(feedback: feedback,
+                                    user: current_user,
+                                    assessment: assessment,
+                                    invite: assessment.invites.find_by(user: current_user))
+    respond_with result.feedback
   end
 
   def update
@@ -39,9 +37,5 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit("skill_feedbacks_attributes": %i[id score skill_id comment])
-  end
-
-  def fetch_skill_feedbacks
-    feedback.skill_feedbacks.includes(:skill)
   end
 end

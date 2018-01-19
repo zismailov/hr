@@ -1,4 +1,4 @@
-class InviteDecorator < Draper::Decorator
+class InviteDecorator < ApplicationDecorator
   delegate_all
 
   decorates_association :user
