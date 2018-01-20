@@ -22,4 +22,5 @@ table.table.data-table.responsive.no-wrap
             = link_to "Посмотреть оценки", user_assessments_path(user)
         td
           - if user.assessments.any?
-            = user.next_assessment_date
+            - unless user.next_assessment.blank?
+              = user.next_assessment.short_date

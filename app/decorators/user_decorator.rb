@@ -20,7 +20,8 @@ class UserDecorator < ApplicationDecorator
     "#{display_role}, Уровень: #{object.level}"
   end
 
-  def next_assessment_date
-    object.assessments.sorted_by_date.first.date.strftime("%d.%m.%Y")
+  def next_assessment
+    assessments = object.assessments.active.sorted_by_date.where("date >= ?", Time.zone.now)
+    assessments.first.decorate if assessments.any?
   end
 end
