@@ -8,7 +8,7 @@ class AssessmentStatistics
   def results
     {
       skill_statistic: skill_statistic,
-      total_avg_sum: total_avg_sum
+      total_avg_sum: assessment.feedbacks.empty? ? 0 : total_avg_sum
     }
   end
 
