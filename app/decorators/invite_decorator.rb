@@ -3,4 +3,5 @@ class InviteDecorator < ApplicationDecorator
 
   decorates_association :user
   decorates_association :assessment
+  decorates_association :feedback
 end

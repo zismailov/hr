@@ -12,7 +12,9 @@ RSpec.feature "Edit Assessment", type: :feature do
       scenario "hr changes date of assessment" do
         visit edit_user_assessment_path(assessment.user, assessment)
 
-        select Faker::Date.forward(1).strftime("%d"), from: "assessment_date_3i"
+        select Time.zone.tomorrow.strftime("%-d"), from: "assessment_date_3i"
+        select Time.zone.tomorrow.strftime("%B"), from: "assessment_date_2i"
+        select Time.zone.tomorrow.strftime("%Y"), from: "assessment_date_1i"
         click_button "Запланировать оценку"
 
         expect(page).to have_content(Time.zone.tomorrow.strftime("%e %B %Y"))

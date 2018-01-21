@@ -13,11 +13,19 @@ hr
 .row
   .medium-12.columns
     h4 Приглашенные сотрудники
+    h5
+      = assessment.progress
     table
       - invites.each do |invite|
         tr
           td = invite.user.full_name_with_role
           td = link_to "Удалить", invite, method: :delete
+          td
+            - if invite.feedback.present?
+              | Заполнил(а) отзыв
+            - else
+              | В процессе
+
 .row
   .medium-4.columns
     - if policy(invite).new?

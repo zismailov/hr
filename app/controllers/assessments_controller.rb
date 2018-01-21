@@ -11,7 +11,7 @@ class AssessmentsController < ApplicationController
   expose_decorated :assessments, -> { user.assessments.active.sorted_by_date }
 
   expose_decorated :users, -> { User.sorted }
-  expose_decorated :invites, -> { assessment.invites.includes(:user) }
+  expose_decorated :invites, -> { fetch_invites }
   expose_decorated :feedbacks, -> { assessment.feedbacks.includes(:user) }
 
   def show
@@ -47,5 +47,9 @@ class AssessmentsController < ApplicationController
 
   def authorize!
     authorize params[:action] == "index" ? user : assessment, "#{params[:action]}?"
+  end
+
+  def fetch_invites
+    assessment.invites.includes(:user, :feedback)
   end
 end
