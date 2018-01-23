@@ -5,6 +5,7 @@ FactoryGirl.define do
     password "123456"
     password_confirmation { password }
     level 1
+    department
     confirmed_at { 1.hour.ago }
   end
 

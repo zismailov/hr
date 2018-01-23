@@ -7,4 +7,5 @@ FactoryGirl.define do
   sequence(:junior_dev_email) { |n| "junior_developer_#{n}@flatstack.com" }
 
   sequence(:title) { |n| "#{Faker::Lorem.words} #{n}" }
+  sequence(:department_title) { |n| "Department_#{n}" }
 end

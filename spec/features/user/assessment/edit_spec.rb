@@ -25,7 +25,7 @@ RSpec.feature "Edit Assessment", type: :feature do
       scenario "middle_dev changes date of assessment" do
         visit edit_user_assessment_path(assessment.user, assessment)
 
-        expect(page).to have_content("Извините, запрошенная функция недоступна.")
+        expect(page).to have_content "Извините, запрошенная функция недоступна."
       end
     end
   end

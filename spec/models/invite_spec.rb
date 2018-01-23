@@ -1,9 +1,13 @@
 require "rails_helper"
 
 RSpec.describe Invite, type: :model do
-  it { is_expected.to belong_to(:user) }
-  it { is_expected.to belong_to(:assessment) }
+  describe "associations" do
+    it { should belong_to(:user) }
+    it { should belong_to(:assessment) }
+  end
 
-  it { is_expected.to validate_presence_of :user }
-  it { is_expected.to validate_presence_of :assessment }
+  describe "validations" do
+    it { is_expected.to validate_presence_of :user }
+    it { is_expected.to validate_presence_of :assessment }
+  end
 end

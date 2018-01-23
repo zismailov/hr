@@ -8,10 +8,10 @@ RSpec.feature "Create Skill", type: :feature do
   scenario "User creates skill" do
     visit skills_path
 
-    click_link("Добавить навык")
-    fill_in("Навык", with: skill_attributes)
-    click_button("Сохранить")
+    click_link "Добавить навык"
+    fill_in "skill[description]", with: skill_attributes
+    click_button "Сохранить"
 
-    expect(page).to have_content("Навык был успешно создан.")
+    expect(page).to have_content "Навык был успешно создан."
   end
 end

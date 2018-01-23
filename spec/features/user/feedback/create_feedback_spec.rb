@@ -21,7 +21,7 @@ RSpec.feature "Create Feedback", type: :feature do
       end
       click_button "Сохранить"
 
-      expect(page).to have_content("Отзыв был успешно создан")
+      expect(page).to have_content "Отзыв был успешно создан"
     end
   end
 end

@@ -1,14 +1,16 @@
 .row
   .medium-12.columns
-    table.table.table-striped
+    table.table.table-striped.data-table
       thead
         tr
           th Навык
+          th Отдел
           th Дейсвтия
       tbody
         - skills.each do |skill|
           tr
             td = skill.description
+            td = skill.department_title
             td.actions
               => link_to "Показать", skill, class: "button tiny"
               => link_to "Редактировать", edit_skill_path(skill), class: "button tiny"

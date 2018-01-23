@@ -4,8 +4,8 @@ describe AssessmentStatistics do
   let(:assessment) { create :assessment, :apply_for_senior_dev }
   let(:feedback_1) { create :feedback, assessment: assessment }
   let(:feedback_2) { create :feedback, assessment: assessment }
-  let(:skill_1) { create :skill }
-  let(:skill_2) { create :skill }
+  let(:skill_1) { create :skill, department: assessment.user.department }
+  let(:skill_2) { create :skill, department: assessment.user.department }
   let(:statistic) { described_class.new(assessment).results }
 
   before do

@@ -6,11 +6,12 @@ class FeedbacksController < ApplicationController
   expose :feedback
   expose :feedbacks, -> { current_user.feedbacks.includes(assessment: :user) }
   expose :skill_feedbacks, -> { feedback.skill_feedbacks.includes(:skill) }
+  expose :skills, -> { assessment.user.department.skills }
 
   def index; end
 
   def new
-    Skill.all.each do |skill|
+    skills.each do |skill|
       feedback.skill_feedbacks << SkillFeedback.new(skill_id: skill.id)
     end
   end

@@ -1,10 +1,14 @@
 require "rails_helper"
 
 RSpec.describe SkillFeedback, type: :model do
-  it { is_expected.to belong_to(:skill) }
-  it { is_expected.to belong_to(:feedback) }
+  describe "associations" do
+    it { should belong_to(:skill) }
+    it { should belong_to(:feedback) }
+  end
 
-  it { is_expected.to validate_presence_of :score }
-  it { is_expected.to validate_presence_of :comment }
-  it { is_expected.to validate_presence_of :skill }
+  describe "validations" do
+    it { is_expected.to validate_presence_of :score }
+    it { is_expected.to validate_presence_of :comment }
+    it { is_expected.to validate_presence_of :skill }
+  end
 end

@@ -1,10 +1,14 @@
 require "rails_helper"
 
 RSpec.describe Assessment, type: :model do
-  it { is_expected.to belong_to(:user) }
-  it { is_expected.to have_many(:invites) }
-  it { is_expected.to have_many(:feedbacks) }
+  describe "associations" do
+    it { should belong_to(:user) }
+    it { should have_many(:invites) }
+    it { should have_many(:feedbacks) }
+  end
 
-  it { is_expected.to validate_presence_of :user }
-  it { is_expected.to validate_presence_of :date }
+  describe "validations" do
+    it { is_expected.to validate_presence_of :user }
+    it { is_expected.to validate_presence_of :date }
+  end
 end

@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:role, :level)
+    params.require(:user).permit(:role, :level, :department_id)
   end
 
   def fetch_users

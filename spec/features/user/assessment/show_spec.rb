@@ -14,7 +14,7 @@ RSpec.feature "Show Assessment", type: :feature do
       scenario "hr see middle_dev's assessment" do
         visit user_assessment_path(middle_dev_assessment.user, middle_dev_assessment)
 
-        expect(page).to have_content("Общая сумма баллов")
+        expect(page).to have_content "Общая сумма баллов"
       end
 
       scenario "hr invites lead_dev to evaluate middle_dev" do
@@ -33,13 +33,13 @@ RSpec.feature "Show Assessment", type: :feature do
       scenario "middle_dev see hr's assessment" do
         visit user_assessment_path(hr_assessment.user, hr_assessment)
 
-        expect(page).to have_content("Извините, запрошенная функция недоступна.")
+        expect(page).to have_content "Извините, запрошенная функция недоступна."
       end
 
       scenario "middle_dev see his assessment" do
         visit user_assessment_path(middle_dev_assessment.user, middle_dev_assessment)
 
-        expect(page).to have_content("Общая сумма баллов")
+        expect(page).to have_content "Общая сумма баллов"
       end
     end
   end

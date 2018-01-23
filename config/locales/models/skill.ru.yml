@@ -12,7 +12,3 @@ ru:
           description: Навык
         edit:
           description: Навык
-    hints:
-      skill:
-        edit:
-          description: Навык

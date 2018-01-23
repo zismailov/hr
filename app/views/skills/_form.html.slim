@@ -1,7 +1,10 @@
 .scaffold-form
   = simple_form_for(skill) do |f|
     .form-inputs
-      = f.input :description
+      h6 Навык
+      = f.input :description, label: false
+      h6 Отдел
+      = f.collection_select(:department_id, Department.all, :id, :title)
 
     .form-actions
       => f.button :submit, "Сохранить"

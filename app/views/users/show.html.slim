@@ -6,14 +6,13 @@
       .medium-10.columns
         h3
           = user.full_name
-        ' Email:
-        = user.email
+        = user.department_info
         br
-        ' Должность:
-        = user.display_role
+        = user.email_info
         br
-        ' Уровень:
-        = user.level
+        = user.role_info
+        br
+        = user.level_info
 
     - if policy(user).update?
       .row

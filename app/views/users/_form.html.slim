@@ -1,6 +1,8 @@
 .scaffold-form
   = simple_form_for(user) do |f|
     .form-inputs
+      h6 Отдел
+      = f.collection_select(:department_id, Department.all, :id, :title)
       h6 Должность
       = f.collection_select(:role, User::ROLES, :first, :last)
       h6 Уровень

@@ -21,8 +21,8 @@ RSpec.feature "Update Feedback", type: :feature do
 
       click_button "Сохранить"
 
-      expect(page).to have_content("Отзыв был успешно обновлен")
-      expect(page).to have_content("Новый комментарий")
+      expect(page).to have_content "Отзыв был успешно обновлен"
+      expect(page).to have_content "Новый комментарий"
     end
   end
 end

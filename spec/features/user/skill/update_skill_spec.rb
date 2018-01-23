@@ -8,9 +8,9 @@ RSpec.feature "Update Skill", type: :feature do
   scenario "User creates skill" do
     visit edit_skill_path(skill)
 
-    fill_in("Навык", with: "Новый навык")
-    click_button("Сохранить")
+    ill_in "skill[description]", with: "Новый навык"
+    click_button "Сохранить"
 
-    expect(page).to have_content("Новый навык")
+    expect(page).to have_content "Новый навык"
   end
 end

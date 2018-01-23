@@ -1,8 +1,9 @@
 class AssessmentStatistics
-  attr_reader :assessment
+  attr_reader :assessment, :skills
 
   def initialize(assessment)
     @assessment = assessment
+    @skills = assessment.user.department.skills
   end
 
   def results
@@ -16,7 +17,7 @@ class AssessmentStatistics
 
   def skill_statistic
     result = []
-    Skill.all.each do |skill|
+    skills.each do |skill|
       result << [skill.description, skill.id, *avg_and_sum(skill)]
     end
     result
@@ -31,7 +32,7 @@ class AssessmentStatistics
 
   def total_avg_sum
     sum = 0
-    Skill.all.each do |skill|
+    skills.each do |skill|
       sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id)
       sum += (sf.sum(:score) * 1.0 / sf.count).round(2)
     end

@@ -14,7 +14,7 @@ RSpec.feature "Archive Assessment", type: :feature do
 
         click_link "Архивировать"
 
-        expect(page).not_to have_content("Архивировать")
+        expect(page).not_to have_content "Архивировать"
       end
     end
 
@@ -24,7 +24,7 @@ RSpec.feature "Archive Assessment", type: :feature do
       scenario "middle_dev archives assessment" do
         visit user_assessments_path(assessment.user)
 
-        expect(page).not_to have_content("Архивировать")
+        expect(page).not_to have_content "Архивировать"
       end
     end
   end

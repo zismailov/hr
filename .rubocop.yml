@@ -57,6 +57,14 @@ Style/StringMethods:
 RSpec/MultipleExpectations:
   Enabled: false
 
+RSpec/ImplicitExpect:
+  Description: Check that a consistent implict expectation style is used.
+  Enabled: false
+  EnforcedStyle: is_expected
+  SupportedStyles:
+    - is_expected
+    - should
+
 Style/BlockDelimiters:
   Exclude:
     - 'spec/**/*'

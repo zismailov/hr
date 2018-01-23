@@ -15,7 +15,7 @@ feature "Update User Role" do
         select "2", from: "user_level"
         click_button "Сохранить"
 
-        expect(page).to have_content("Пользователь был успешно обновлен.")
+        expect(page).to have_content "Пользователь был успешно обновлен."
       end
     end
 
@@ -25,7 +25,7 @@ feature "Update User Role" do
       scenario "middle_dev changes role" do
         visit user_path(middle_dev)
 
-        expect(page).not_to have_content("Изменить должность")
+        expect(page).not_to have_content "Изменить должность"
       end
     end
   end

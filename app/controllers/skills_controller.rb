@@ -3,8 +3,8 @@ class SkillsController < ApplicationController
 
   respond_to :html
 
-  expose :skill
-  expose :skills, -> { Skill.page(params[:page]) }
+  expose_decorated :skill
+  expose_decorated :skills, -> { Skill.all.includes(:department) }
 
   def create
     skill.save
@@ -26,6 +26,6 @@ class SkillsController < ApplicationController
   private
 
   def skill_params
-    params.require(:skill).permit(:description)
+    params.require(:skill).permit(:description, :department_id)
   end
 end
