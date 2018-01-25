@@ -7,8 +7,7 @@ RSpec.feature "Create Feedback", type: :feature do
     let(:assessment) { create :assessment, :apply_for_senior_dev }
 
     before do
-      5.times { create :skill }
-      create :invite, user: current_user, assessment: assessment
+      5.times { create :skill, :senior_dev_skill, department: assessment.user.department }
     end
 
     scenario "user creates feedback" do

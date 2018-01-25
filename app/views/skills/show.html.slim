@@ -1,13 +1,9 @@
 .row
-  .medium-12.columns
-    h3 = skill.skill_description
-    h5 = skill.department_title
-
-    | Описание:
-
+  .medium-8.columns
+    h3 = skill.title
+    h5 = skill.skill_info
+    = skill.description
     br
     br
-    br
-
     => link_to "Редактировать", edit_skill_path(skill), class: "button"
     = link_to "Архивировать", skill, method: :delete, data: { confirm: "Вы уверены?" }, class: "button alert"

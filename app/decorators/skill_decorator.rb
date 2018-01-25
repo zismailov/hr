@@ -1,11 +1,15 @@
 class SkillDecorator < ApplicationDecorator
-  delegate_all
+  delegate :title, :description, :department_id
 
-  def skill_description
-    "Навык: #{object.description}"
+  def department
+    object.department.present? ? object.department.title : "Личностные качества"
   end
 
-  def department_title
-    object.department.title
+  def role
+    Skill.roles[object.role]
+  end
+
+  def skill_info
+    "#{department}, #{role}"
   end
 end

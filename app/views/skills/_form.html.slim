@@ -2,9 +2,13 @@
   = simple_form_for(skill) do |f|
     .form-inputs
       h6 Навык
-      = f.input :description, label: false
+      = f.input :title, label: false
       h6 Отдел
-      = f.collection_select(:department_id, Department.all, :id, :title)
+      = f.collection_select(:department_id, Department.all, :id, :title, prompt: "Личностные качества")
+      h6 Должность
+      = f.collection_select(:role, Skill.roles, :first, :last)
+      h6 Описание
+      = f.input :description, input_html: { rows: 4 }, as: :text, label: false
 
     .form-actions
       => f.button :submit, "Сохранить"

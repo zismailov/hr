@@ -6,6 +6,6 @@ FactoryGirl.define do
   sequence(:middle_dev_email) { |n| "middle_developer_#{n}@flatstack.com" }
   sequence(:junior_dev_email) { |n| "junior_developer_#{n}@flatstack.com" }
 
-  sequence(:title) { |n| "#{Faker::Lorem.words} #{n}" }
+  sequence(:title) { |n| "Title_#{n}" }
   sequence(:department_title) { |n| "Department_#{n}" }
 end

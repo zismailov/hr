@@ -5,12 +5,14 @@
         tr
           th Навык
           th Отдел
+          th Должность
           th Дейсвтия
       tbody
         - skills.each do |skill|
           tr
-            td = skill.description
-            td = skill.department_title
+            td = skill.title
+            td = skill.department
+            td = skill.role
             td.actions
               => link_to "Показать", skill, class: "button tiny"
               => link_to "Редактировать", edit_skill_path(skill), class: "button tiny"
