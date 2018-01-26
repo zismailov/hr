@@ -1,8 +1,8 @@
 departments = [
-  "Ruby",
   "Android",
   "Front-end",
   "iOS",
+  "Ruby",
   "Design"
 ].each do |department|
   Department.create title: department
@@ -10,15 +10,23 @@ end
 
 FactoryGirl.create(:user, :hr, department_id: nil)
 
-10.times { FactoryGirl.create(:user, :manager, level: rand(5), department_id: nil) }
+5.times { FactoryGirl.create(:user, :manager, level: rand(1..3), department_id: nil) }
 
-10.times { FactoryGirl.create(:user, :lead_dev, level: rand(5), department_id: 1) }
+2.times { FactoryGirl.create(:user, :lead_dev, level: rand(1..3), department_id: 1) }
+2.times { FactoryGirl.create(:user, :lead_dev, level: rand(1..3), department_id: 3) }
+2.times { FactoryGirl.create(:user, :lead_dev, level: rand(1..3), department_id: 4) }
 
-15.times { FactoryGirl.create(:user, :senior_dev, level: rand(5), department_id: 1) }
+5.times { FactoryGirl.create(:user, :senior_dev, level: rand(1..3), department_id: 1) }
+5.times { FactoryGirl.create(:user, :senior_dev, level: rand(1..3), department_id: 3) }
+5.times { FactoryGirl.create(:user, :senior_dev, level: rand(1..3), department_id: 4) }
 
-20.times { FactoryGirl.create(:user, :middle_dev, level: rand(5), department_id: 2) }
+7.times { FactoryGirl.create(:user, :middle_dev, level: rand(1..3), department_id: 1) }
+7.times { FactoryGirl.create(:user, :middle_dev, level: rand(1..3), department_id: 3) }
+7.times { FactoryGirl.create(:user, :middle_dev, level: rand(1..3), department_id: 4) }
 
-30.times { FactoryGirl.create(:user, :junior_dev, level: rand(5), department_id: 3) }
+10.times { FactoryGirl.create(:user, :junior_dev, level: rand(1..3), department_id: 1) }
+10.times { FactoryGirl.create(:user, :junior_dev, level: rand(1..3), department_id: 3) }
+10.times { FactoryGirl.create(:user, :junior_dev, level: rand(1..3), department_id: 4) }
 
 # Личностные качества, Junior Developer
 FactoryGirl.create(:skill, title: "Общение с заказчиком", department_id: nil, role: "Junior Developer", description: "Знает заказчика и цели проекта.")

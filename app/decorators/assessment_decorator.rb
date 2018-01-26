@@ -13,10 +13,14 @@ class AssessmentDecorator < ApplicationDecorator
   end
 
   def info
-    "Претендуемая должность: #{User::ROLES[object.role.to_sym]}"
+    "Претендуемая должность: #{requested_role}"
   end
 
   def progress
     "Оставленные отзывы: #{assessment.feedbacks.count} / #{assessment.invites.count}"
+  end
+
+  def requested_role
+    User.roles[object.role]
   end
 end

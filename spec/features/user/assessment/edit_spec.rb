@@ -13,7 +13,7 @@ RSpec.feature "Edit Assessment", type: :feature do
         visit edit_user_assessment_path(assessment.user, assessment)
 
         select Time.zone.tomorrow.strftime("%-d"), from: "assessment_date_3i"
-        click_button "Запланировать оценку"
+        click_button "Сохранить"
 
         expect(page).to have_content(Time.zone.tomorrow.strftime("%e %B %Y"))
       end

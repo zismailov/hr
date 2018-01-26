@@ -11,32 +11,37 @@ FactoryGirl.define do
 
   trait :hr do
     email { generate :hr_email }
-    role "hr"
+    role "HR"
   end
 
   trait :manager do
     email { generate :manager_email }
-    role "manager"
+    role "Менеджер"
   end
 
   trait :lead_dev do
     email { generate :lead_dev_email }
-    role "lead_dev"
+    role "Lead Developer"
   end
 
   trait :senior_dev do
     email { generate :senior_dev_email }
-    role "senior_dev"
+    role "Senior Developer"
   end
 
   trait :middle_dev do
     email { generate :middle_dev_email }
-    role "middle_dev"
+    role "Middle Developer"
   end
 
   trait :junior_dev do
     email { generate :junior_dev_email }
-    role "junior_dev"
+    role "Junior Developer"
+  end
+
+  trait :employee do
+    email { generate :junior_dev_email }
+    role "Сотрудник"
   end
 
   trait :not_confirmed do

@@ -4,7 +4,7 @@
   .medium-6.columns
     h3 = user.full_name
     h5 = user.department_info
-    h5 = user.info
+    h5 = user.role_with_level
   .medium-4.columns
     - if policy(assessment).new?
       = link_to "Запланировать новую оценку", new_user_assessment_path(user), class: "button"

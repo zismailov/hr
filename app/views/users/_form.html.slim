@@ -4,7 +4,7 @@
       h6 Отдел
       = f.collection_select(:department_id, Department.all, :id, :title)
       h6 Должность
-      = f.collection_select(:role, User::ROLES, :first, :last)
+      = f.collection_select(:role, User.roles, :first, :last)
       h6 Уровень
       = f.input :level, collection: [1, 2, 3], label: false
 

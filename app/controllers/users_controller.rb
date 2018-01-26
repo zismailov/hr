@@ -20,6 +20,6 @@ class UsersController < ApplicationController
   end
 
   def fetch_users
-    User.sorted.includes(:assessments)
+    User.sorted.includes(:assessments, :department)
   end
 end

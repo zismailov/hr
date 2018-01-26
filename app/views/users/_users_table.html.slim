@@ -3,6 +3,7 @@ table.table.data-table.responsive.no-wrap
     tr
       th Сотрудник
       th Email
+      th Отдел
       th Должность
       th Уровень
       th Оценки
@@ -11,11 +12,12 @@ table.table.data-table.responsive.no-wrap
     - users.each do |user|
       tr
         td
-          = image_tag(user.profile_image, size: "35", class: "image-circle") unless user.profile_image.blank?
+          = image_tag(user.profile_image, size: "35", class: "image-circle")
           '
           = link_to user.full_name, user
         td = user.email
-        td = user.display_role
+        td = user.department
+        td = user.role
         td = user.level
         td
           - if policy(user).show?

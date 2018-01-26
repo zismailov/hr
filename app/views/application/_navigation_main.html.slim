@@ -5,5 +5,5 @@
       = active_link_to "Сотрудники", users_path, active: :exclusive, wrap_tag: :li
       = active_link_to "Мои оценки", user_assessments_path(current_user), active: :exclusive, wrap_tag: :li
       = active_link_to "Мои приглашения", invites_path, active: :exclusive, wrap_tag: :li
-      - if current_user.role == "hr"
+      - if current_user.hr?
         = active_link_to "Навыки", skills_path, active: :exclusive, wrap_tag: :li

@@ -2,5 +2,6 @@
   .medium-6.medium-centered.columns
     h3 Изменить дату оценки для:
     h4 = user.full_name
-    h4 = user.info
+    h5 = user.department_info
+    h5 = user.role_with_level
     = render "form"

@@ -5,13 +5,13 @@
       table.table
         thead
           th Сотрудник
-          th Должность
+          th Претендуемая должность
           th Оценка
         tbody
           - invites.each do |invite|
             tr
               td = invite.assessment.user.full_name
-              td = invite.assessment.user.display_role
+              td = invite.assessment.requested_role
               - if invite.feedback
                 td
                   => link_to "Посмотреть", invite.feedback
