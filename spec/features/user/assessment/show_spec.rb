@@ -4,8 +4,8 @@ RSpec.feature "Show Assessment", type: :feature do
   describe "#show" do
     let(:hr) { create :user, :hr }
     let(:middle_dev) { create :user, :middle_dev }
-    let(:hr_assessment) { create :assessment, :apply_for_hr, user: hr }
-    let(:middle_dev_assessment) { create :assessment, :apply_for_senior_dev, user: middle_dev }
+    let(:hr_assessment) { create :assessment, :requested_role_hr, user: hr }
+    let(:middle_dev_assessment) { create :assessment, :requested_role_senior_dev, user: middle_dev }
     let!(:lead_dev) { create :user, :lead_dev }
 
     context "when user is hr" do

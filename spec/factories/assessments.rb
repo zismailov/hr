@@ -4,27 +4,27 @@ FactoryGirl.define do
     date { Time.zone.today }
   end
 
-  trait :apply_for_hr do
-    role "hr"
+  trait :requested_role_hr do
+    requested_role "hr"
   end
 
-  trait :apply_for_manager do
-    role "manager"
+  trait :requested_role_manager do
+    requested_role "manager"
   end
 
-  trait :apply_for_lead_dev do
-    role "lead_dev"
+  trait :requested_role_lead_dev do
+    requested_role "lead_dev"
   end
 
-  trait :apply_for_senior_dev do
-    role "senior_dev"
+  trait :requested_role_senior_dev do
+    requested_role "senior_dev"
   end
 
-  trait :apply_for_middle_dev do
-    role "middle_dev"
+  trait :requested_role_middle_dev do
+    requested_role "middle_dev"
   end
 
-  trait :apply_for_junior_dev do
-    role "junior_dev"
+  trait :requested_role_junior_dev do
+    requested_role "junior_dev"
   end
 end

@@ -15,10 +15,12 @@
         thead
           tr
             th Дата
+            th Претендуемая должность
             th Действия
         - assessments.each do |assessment|
           tr
-            td= assessment.date
+            td = assessment.date
+            td = assessment.requested_role
             td.actions
               => link_to "Посмотреть", user_assessment_path(user, assessment),
                                        class: "button tiny"

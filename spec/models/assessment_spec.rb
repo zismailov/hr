@@ -10,5 +10,6 @@ RSpec.describe Assessment, type: :model do
   describe "validations" do
     it { is_expected.to validate_presence_of :user }
     it { is_expected.to validate_presence_of :date }
+    it { is_expected.to validate_presence_of :requested_role }
   end
 end

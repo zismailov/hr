@@ -5,7 +5,7 @@ RSpec.feature "Create Feedback", type: :feature do
     include_context "current user signed in"
 
     let(:middle_dev) { create :user, :middle_dev }
-    let(:assessment) { create :assessment, :apply_for_senior_dev, user: middle_dev }
+    let(:assessment) { create :assessment, :requested_role_senior_dev, user: middle_dev }
 
     before do
       5.times { create :skill, :senior_dev_skill, department: assessment.user.department }

@@ -4,7 +4,7 @@ RSpec.feature "Edit Assessment", type: :feature do
   describe "#edit" do
     let(:hr) { create :user, :hr }
     let(:middle_dev) { create :user, :middle_dev }
-    let(:assessment) { create :assessment, :apply_for_senior_dev, user: middle_dev }
+    let(:assessment) { create :assessment, :requested_role_senior_dev, user: middle_dev }
 
     context "when user is hr" do
       before { login_as hr }

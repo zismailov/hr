@@ -3,7 +3,7 @@
     h6 Дата оценки
     = f.input :date, label: false
     h6 Претендуемая должность
-    = f.collection_select(:role, User.roles, :first, :last)
+    = f.collection_select(:requested_role, User.roles, :first, :last)
   .form-actions
     => f.button :submit, "Сохранить"
     = link_to "Назад", :back, class: "button hollow"

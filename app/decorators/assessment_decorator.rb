@@ -21,6 +21,6 @@ class AssessmentDecorator < ApplicationDecorator
   end
 
   def requested_role
-    User.roles[object.role]
+    User.roles[object.requested_role]
   end
 end

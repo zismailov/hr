@@ -4,7 +4,7 @@ describe AssessmentStatistics do
   let(:middle_dev) { create :user, :middle_dev }
   let(:senior_dev_1) { create :user, :senior_dev }
   let(:senior_dev_2) { create :user, :senior_dev }
-  let(:assessment) { create :assessment, :apply_for_senior_dev, user: middle_dev }
+  let(:assessment) { create :assessment, :requested_role_senior_dev, user: middle_dev }
   let(:feedback_1) { create :feedback, assessment: assessment, user: senior_dev_1 }
   let(:feedback_2) { create :feedback, assessment: assessment, user: senior_dev_2 }
   let(:skill_1) { create :skill, :senior_dev_skill, department: assessment.user.department }

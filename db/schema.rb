@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180126154305) do
+ActiveRecord::Schema.define(version: 20180128133104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20180126154305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
-    t.string "role"
+    t.string "requested_role"
   end
 
   create_table "departments", force: :cascade do |t|
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20180126154305) do
     t.integer "level", default: 1, null: false
     t.string "provider"
     t.string "uid"
+    t.string "image_id"
     t.string "profile_image"
     t.bigint "department_id"
     t.index ["department_id"], name: "index_users_on_department_id"
