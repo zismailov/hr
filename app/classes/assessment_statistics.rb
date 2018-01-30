@@ -18,7 +18,7 @@ class AssessmentStatistics
   def skill_statistic
     result = []
     skills.each do |skill|
-      result << [skill.description, skill.id, *avg_and_sum(skill)]
+      result << [skill.title, skill.id, *avg_and_sum(skill)]
     end
     result
   end

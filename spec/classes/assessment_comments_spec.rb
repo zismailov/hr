@@ -24,8 +24,8 @@ describe AssessmentComments do
 
   it "returns right skill_statistic" do
     expect(comments[:body]).to contain_exactly(
-      [skill_1.description, "Первый коммент к первому скиллу", "Второй коммент к первому скиллу"],
-      [skill_2.description, "Первый коммент ко второму скиллу", "Второй коммент ко второму скиллу"]
+      [skill_1.title, "Первый коммент к первому скиллу", "Второй коммент к первому скиллу"],
+      [skill_2.title, "Первый коммент ко второму скиллу", "Второй коммент ко второму скиллу"]
     )
   end
 end

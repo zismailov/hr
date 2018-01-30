@@ -25,7 +25,7 @@ class AssessmentComments
   def body
     result = []
     assessment.user.department.skills.each do |skill|
-      result << [skill.description, *skill_comment(skill.id)]
+      result << [skill.title, *skill_comment(skill.id)]
     end
     result
   end

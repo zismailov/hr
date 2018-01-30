@@ -24,7 +24,7 @@ describe AssessmentStatistics do
 
   it "returns right skill_statistic" do
     expect(statistic[:skill_statistic]).to contain_exactly(
-      [skill_1.description, skill_1.id, 3.5, 7], [skill_2.description, skill_2.id, 5.0, 10]
+      [skill_1.title, skill_1.id, 3.5, 7], [skill_2.title, skill_2.id, 5.0, 10]
     )
   end
 end
