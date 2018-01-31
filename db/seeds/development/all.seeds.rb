@@ -1,13 +1,3 @@
-departments = [
-  "Android",
-  "Front-end",
-  "iOS",
-  "Ruby",
-  "Design"
-].each do |department|
-  Department.create title: department
-end
-
 FactoryGirl.create(:user, :hr, department_id: nil)
 
 5.times { FactoryGirl.create(:user, :manager, level: rand(1..3), department_id: nil) }

@@ -1,1 +1,1 @@
-%w(Ruby Android Front-end iOS Design).each {|title| Department.create title: title }
+%w(Android Front-end iOS Ruby Design).each {|title| Department.create title: title }
