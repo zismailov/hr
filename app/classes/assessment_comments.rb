@@ -26,7 +26,7 @@ class AssessmentComments
   def body
     result = []
     skills.each do |skill|
-      result << [skill.title, *skill_comment(skill.id)]
+      result << [skill.title, *skill_comment(skill)]
     end
     result
   end
@@ -34,7 +34,8 @@ class AssessmentComments
   def skill_comment(skill)
     result = []
     assessment.feedbacks.each do |feedback|
-      result << SkillFeedback.find_by(feedback: feedback, skill: skill).comment
+      comment = SkillFeedback.find_by(feedback: feedback, skill: skill).comment
+      result << (comment.empty? ? "Нет отзыва" : comment)
     end
     result
   end

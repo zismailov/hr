@@ -7,8 +7,6 @@ RSpec.describe SkillFeedback, type: :model do
   end
 
   describe "validations" do
-    it { is_expected.to validate_presence_of :score }
-    it { is_expected.to validate_presence_of :comment }
     it { is_expected.to validate_presence_of :skill }
   end
 end
