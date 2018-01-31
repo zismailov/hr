@@ -6,13 +6,13 @@ class FeedbacksController < ApplicationController
   expose :feedback
   expose :feedbacks, -> { current_user.feedbacks.includes(assessment: :user) }
   expose :skill_feedbacks, -> { feedback.skill_feedbacks.includes(:skill) }
-  expose :skills, -> { assessment.user.department.skills }
+  expose :skills, -> { fetch_skills }
 
   def index; end
 
   def new
     skills.each do |skill|
-      feedback.skill_feedbacks << SkillFeedback.new(skill_id: skill.id)
+      feedback.skill_feedbacks << SkillFeedback.new(skill: skill)
     end
   end
 
@@ -38,5 +38,9 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit("skill_feedbacks_attributes": %i[id score skill_id comment])
+  end
+
+  def fetch_skills
+    assessment.user.department.skills.where(role: User.roles[assessment.requested_role])
   end
 end

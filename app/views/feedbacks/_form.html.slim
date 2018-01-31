@@ -5,7 +5,7 @@
       = sf.input :skill_id, value: sf.object.skill_id, as: :hidden
       .row
         .small-8.columns
-          h5 = sf.object.skill.description
+          h5 = sf.object.skill.title
         .small-4.columns.text-right
           = sf.input :score, collection: [5, 4, 3, 0], label: false, as: :radio_buttons
       .row

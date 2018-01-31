@@ -1,8 +1,9 @@
 class AssessmentComments
-  attr_reader :assessment
+  attr_reader :assessment, :skills
 
   def initialize(assessment)
     @assessment = assessment
+    @skills = assessment.user.department.skills.where(role: User.roles[assessment.requested_role])
   end
 
   def results
@@ -24,7 +25,7 @@ class AssessmentComments
 
   def body
     result = []
-    assessment.user.department.skills.each do |skill|
+    skills.each do |skill|
       result << [skill.title, *skill_comment(skill.id)]
     end
     result

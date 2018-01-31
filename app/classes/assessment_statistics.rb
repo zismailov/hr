@@ -3,7 +3,7 @@ class AssessmentStatistics
 
   def initialize(assessment)
     @assessment = assessment
-    @skills = assessment.user.department.skills
+    @skills = assessment.user.department.skills.where(role: User.roles[assessment.requested_role])
   end
 
   def results
@@ -25,7 +25,7 @@ class AssessmentStatistics
 
   def avg_and_sum(skill)
     sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id).where(skill_id: skill.id)
-    return 0 if sf.empty?
+    return [0, 0] if sf.empty?
 
     [(sf.sum(:score) * 1.0 / sf.count).round(2), sf.sum(:score)]
   end
