@@ -1,9 +1,11 @@
 class FeedbacksController < ApplicationController
+  before_action :authorize!, only: %w[edit update destroy]
+
   respond_to :html
 
+  expose :feedback
   expose :assessment
 
-  expose :feedback
   expose :feedbacks, -> { current_user.feedbacks.includes(assessment: :user) }
   expose :skill_feedbacks, -> { feedback.skill_feedbacks.includes(:skill) }
   expose :skills, -> { fetch_skills }
@@ -38,6 +40,10 @@ class FeedbacksController < ApplicationController
 
   def feedback_params
     params.require(:feedback).permit("skill_feedbacks_attributes": %i[id score skill_id comment])
+  end
+
+  def authorize!
+    authorize feedback, :manage?
   end
 
   def fetch_skills
