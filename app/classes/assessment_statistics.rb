@@ -3,7 +3,7 @@ class AssessmentStatistics
 
   def initialize(assessment)
     @assessment = assessment
-    @skills = assessment.user.department.skills.where(role: User.roles[assessment.requested_role])
+    @skills = Skill.where(role: User.roles[assessment.requested_role], department: [assessment.user.department, nil])
   end
 
   def results
