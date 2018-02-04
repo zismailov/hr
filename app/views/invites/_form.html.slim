@@ -2,7 +2,7 @@
   = simple_form_for(invite) do |f|
     .form-inputs
       = f.hidden_field :assessment_id, value: assessment.id
-      = f.input :user_id, collection: users, label_method: :full_name_with_role, label: "Сотрудник"
+      = f.input :user_id, collection: users, label_method: :user_info, label: "Сотрудник"
 
     .form-actions
       = f.button :submit, "Пригласить", class: "tiny"

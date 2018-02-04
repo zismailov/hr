@@ -41,6 +41,14 @@ class UserDecorator < ApplicationDecorator
     "#{role}, Уровень: #{object.level}"
   end
 
+  def user_info
+    if object.department.present?
+      "#{object.full_name} (#{department}, #{role}, ур. #{object.level})"
+    else
+      "#{object.full_name} (#{role}, ур. #{object.level})"
+    end
+  end
+
   def next_assessment
     assessments = object.assessments.active.sorted_by_date.where("date >= ?", Time.zone.now)
     assessments.first.decorate if assessments.any?

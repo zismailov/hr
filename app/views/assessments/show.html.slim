@@ -17,7 +17,7 @@ hr
     table
       - invites.each do |invite|
         tr
-          td = invite.user.full_name_with_role
+          td = invite.user.user_info
           td = link_to "Удалить", invite, method: :delete
           td = invite.status
 
@@ -54,7 +54,7 @@ hr
       thead
         th Навык
         - feedbacks.each do |feedback|
-          th = feedback.user.full_name_with_role
+          th = feedback.user.full_name
         th Среднее
         th Сумма
       tbody
