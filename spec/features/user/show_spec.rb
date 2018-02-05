@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Show" do
+RSpec.describe "Show", type: :feature do
   describe "#show" do
     let(:hr) { create :user, :hr }
     let(:middle_dev) { create :user, :middle_dev }

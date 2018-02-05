@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Update Feedback", type: :feature do
+RSpec.describe "Update Feedback", type: :feature do
   describe "#update" do
     include_context "current user signed in"
 
@@ -12,7 +12,7 @@ RSpec.feature "Update Feedback", type: :feature do
       create :invite, user: current_user, feedback: feedback, assessment: assessment
     end
 
-    scenario "user updates feedback" do
+    it "user updates feedback" do
       visit invites_path
 
       click_link "Изменить"

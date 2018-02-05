@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:hr_email)         { |n| "hr_#{n}@flatstack.com" }
   sequence(:manager_email)    { |n| "manager_#{n}@flatstack.com" }
   sequence(:lead_dev_email)   { |n| "lead_developer_#{n}@flatstack.com" }

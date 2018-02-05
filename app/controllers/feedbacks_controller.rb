@@ -26,6 +26,8 @@ class FeedbacksController < ApplicationController
     respond_with result.feedback
   end
 
+  def edit; end
+
   def update
     feedback.update_attributes(feedback_params)
     respond_with(feedback)

@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Edit Assessment", type: :feature do
+RSpec.describe "Edit Assessment", type: :feature do
   describe "#edit" do
     let(:hr) { create :user, :hr }
     let(:middle_dev) { create :user, :middle_dev }
@@ -9,7 +9,7 @@ RSpec.feature "Edit Assessment", type: :feature do
     context "when user is hr" do
       before { login_as hr }
 
-      scenario "hr changes date of assessment" do
+      it "hr changes date of assessment" do
         visit edit_user_assessment_path(assessment.user, assessment)
 
         select Time.zone.tomorrow.strftime("%-d"), from: "assessment_date_3i"
@@ -22,7 +22,7 @@ RSpec.feature "Edit Assessment", type: :feature do
     context "when user is middle_dev" do
       before { login_as middle_dev }
 
-      scenario "middle_dev changes date of assessment" do
+      it "middle_dev changes date of assessment" do
         visit edit_user_assessment_path(assessment.user, assessment)
 
         expect(page).to have_content "Извините, запрошенная функция недоступна."

@@ -80,3 +80,6 @@ Metrics/BlockLength:
 
 RSpec/ExampleLength:
   Max: 12
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false

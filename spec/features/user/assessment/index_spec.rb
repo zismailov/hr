@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Index Assessment", type: :feature do
+RSpec.describe "Index Assessment", type: :feature do
   describe "#index" do
     let(:hr) { create :user, :hr }
     let(:middle_dev) { create :user, :middle_dev }

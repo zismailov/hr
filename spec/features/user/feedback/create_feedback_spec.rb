@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Create Feedback", type: :feature do
+RSpec.describe "Create Feedback", type: :feature do
   describe "#create" do
     include_context "current user signed in"
 
@@ -11,7 +11,7 @@ RSpec.feature "Create Feedback", type: :feature do
       5.times { create :skill, :senior_dev_skill, department: assessment.user.department }
     end
 
-    scenario "user creates feedback" do
+    it "user creates feedback" do
       visit invites_path
 
       click_link "Создать отзыв"

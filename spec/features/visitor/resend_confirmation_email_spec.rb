@@ -1,9 +1,9 @@
 require "rails_helper"
 
-RSpec.feature "Resend Confirmation Email", type: :feature do
+RSpec.describe "Resend Confirmation Email", type: :feature do
   let(:user) { create :user, :hr, :not_confirmed }
 
-  scenario "Visitor resends email confirmation instructions" do
+  it "Visitor resends email confirmation instructions" do
     visit new_user_confirmation_path
 
     fill_in "Email", with: user.email

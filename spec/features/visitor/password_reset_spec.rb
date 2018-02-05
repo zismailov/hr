@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Password Reset", type: :feature do
+RSpec.describe "Password Reset", type: :feature do
   let(:new_password) { "qwe123" }
   let(:user) { create :user, :hr }
 
@@ -10,7 +10,7 @@ RSpec.feature "Password Reset", type: :feature do
     click_button "Сменить пароль"
   end
 
-  scenario "Visitor resets his password" do
+  it "Visitor resets his password" do
     visit new_user_password_path
 
     fill_in "Email", with: user.email

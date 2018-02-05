@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :skill_feedback do
     association :skill, factory: :skill, role: "Senior Developer"
     feedback

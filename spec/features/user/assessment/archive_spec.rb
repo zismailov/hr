@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature "Archive Assessment", type: :feature do
+RSpec.describe "Archive Assessment", type: :feature do
   describe "#create" do
     let(:hr) { create :user, :hr }
     let(:middle_dev) { create :user, :middle_dev }
@@ -9,7 +9,7 @@ RSpec.feature "Archive Assessment", type: :feature do
     context "when user is hr" do
       before { login_as hr }
 
-      scenario "hr archives assessment" do
+      it "hr archives assessment" do
         visit user_assessments_path(assessment.user)
 
         click_link "Архивировать"
@@ -21,7 +21,7 @@ RSpec.feature "Archive Assessment", type: :feature do
     context "when user is middle_dev" do
       before { login_as middle_dev }
 
-      scenario "middle_dev archives assessment" do
+      it "middle_dev archives assessment" do
         visit user_assessments_path(assessment.user)
 
         expect(page).not_to have_content "Архивировать"
