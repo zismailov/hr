@@ -10,7 +10,7 @@ class AssessmentsController < ApplicationController
   expose_decorated :assessment
   expose_decorated :assessments, -> { user.assessments.active.sorted_by_date }
 
-  expose_decorated :users, -> { User.sorted }
+  expose_decorated :users, -> { User.sorted.includes(:department) }
   expose_decorated :invites, -> { fetch_invites }
   expose_decorated :feedbacks, -> { assessment.feedbacks.includes(:user) }
 
@@ -50,6 +50,6 @@ class AssessmentsController < ApplicationController
   end
 
   def fetch_invites
-    assessment.invites.includes(:user, :feedback)
+    assessment.invites.includes(:feedback, user: :department)
   end
 end
