@@ -10,6 +10,7 @@ RSpec.describe "Archive Skill", type: :feature do
 
     click_link "Архивировать"
 
-    expect(page).not_to have_content(skill.description)
+    expect(page).to have_content "Навык был успешно заархивирован"
+    expect(page).not_to have_content skill.title
   end
 end

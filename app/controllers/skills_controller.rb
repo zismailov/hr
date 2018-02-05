@@ -4,23 +4,23 @@ class SkillsController < ApplicationController
   respond_to :html
 
   expose_decorated :skill
-  expose_decorated :skills, -> { Skill.all.includes(:department) }
+  expose_decorated :skills, -> { Skill.active.includes(:department) }
 
   def create
     skill.save
-    respond_with(skill)
+    respond_with skill
   end
 
   def update
     skill.update_attributes(skill_params)
-    respond_with(skill)
+    respond_with skill
   end
 
   def destroy
     skill.deleted_at = Time.zone.now
+    skill.save
 
-    skill.destroy
-    respond_with(skill)
+    redirect_to skills_path, notice: "Навык был успешно заархивирован"
   end
 
   private
