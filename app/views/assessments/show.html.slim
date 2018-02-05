@@ -62,6 +62,9 @@ hr
           tr
             td = ss[0]
             - feedbacks.each do |feedback|
-              td = feedback.skill_feedbacks.find_by(skill_id: ss[1]).score
+              - if feedback.skill_feedbacks.find_by(skill_id: ss[1]).score.present?
+                td = feedback.skill_feedbacks.find_by(skill_id: ss[1]).score
+              - else
+                td -
             td = ss[2]
             td = ss[3]
