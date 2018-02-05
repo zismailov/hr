@@ -3,7 +3,7 @@ class AssessmentComments
 
   def initialize(assessment)
     @assessment = assessment
-    @skills = Skill.where(role: User.roles[assessment.requested_role], department: [assessment.user.department, nil])
+    @skills = Skill.where(role: Skill.roles[assessment.requested_role], department: [assessment.user.department, nil])
   end
 
   def results

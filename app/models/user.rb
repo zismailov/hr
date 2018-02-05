@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :feedbacks, dependent: :destroy
 
   validates :full_name, :role, :level, presence: true
-  validates :role, inclusion: { in: %w[hr manager lead_dev senior_dev middle_dev junior_dev employee] }
+  validates :role, inclusion: { in: %w[hr manager lead_dev senior_dev middle_dev junior_dev designer employee] }
   validates :level, inclusion: 1..3
 
   scope :sorted, -> { order(full_name: :asc) }
@@ -21,6 +21,7 @@ class User < ApplicationRecord
     senior_dev: "Senior Developer",
     middle_dev: "Middle Developer",
     junior_dev: "Junior Developer",
+    designer: "Дизайнер",
     employee: "Сотрудник"
   }
 
