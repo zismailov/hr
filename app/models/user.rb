@@ -10,7 +10,7 @@ class User < ApplicationRecord
 
   validates :full_name, :role, :level, presence: true
   validates :role, inclusion: { in: %w[hr manager lead_dev senior_dev middle_dev junior_dev designer employee] }
-  validates :level, inclusion: 1..3
+  validates :level, inclusion: 1..5
 
   scope :sorted, -> { order(full_name: :asc) }
 
