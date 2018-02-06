@@ -2,11 +2,11 @@
   = simple_form_for(user) do |f|
     .form-inputs
       h6 Отдел
-      = f.collection_select(:department_id, Department.all, :id, :title)
+      = f.collection_select :department_id, Department.all, :id, :title, include_blank: true
       h6 Должность
-      = f.collection_select(:role, User.roles, :first, :last)
+      = f.collection_select :role, User.roles, :first, :last, selected: user.role
       h6 Уровень
-      = f.input :level, collection: [1, 2, 3], label: false
+      = f.input :level, collection: [1, 2, 3], label: false, include_blank: false
 
     .form-actions
       = f.button :submit, "Сохранить"
