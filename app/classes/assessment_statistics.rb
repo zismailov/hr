@@ -24,8 +24,7 @@ class AssessmentStatistics
   end
 
   def avg_and_sum(skill)
-    sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id)
-                      .where(skill: skill).where.not(score: nil)
+    sf = fetch_skill_feedbacks(skill)
     return [0, 0] if sf.empty?
 
     [(sf.sum(:score) * 1.0 / sf.count).round(2), sf.sum(:score)]
@@ -34,10 +33,14 @@ class AssessmentStatistics
   def total_avg_sum
     sum = 0
     skills.each do |skill|
-      sf = SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id)
-                        .where(skill: skill).where.not(score: nil)
-      sum += (sf.sum(:score) * 1.0 / sf.count).round(2)
+      sf = fetch_skill_feedbacks(skill)
+      sum += (sf.sum(:score) * 1.0 / sf.count).round(2) unless sf.sum(:score).zero?
     end
     sum
+  end
+
+  def fetch_skill_feedbacks(skill)
+    SkillFeedback.joins(:feedback).where("feedbacks.assessment_id = ?", assessment.id)
+                 .where(skill: skill).where.not(score: nil)
   end
 end
