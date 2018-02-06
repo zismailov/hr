@@ -8,7 +8,7 @@ class SkillsController < ApplicationController
 
   def create
     skill.save
-    respond_with skill
+    respond_with skill, location: skills_path
   end
 
   def update
