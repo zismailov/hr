@@ -2,7 +2,6 @@ table.table.data-table.responsive.no-wrap
   thead
     tr
       th Сотрудник
-      th Email
       th Отдел
       th Должность
       th Уровень
@@ -15,13 +14,12 @@ table.table.data-table.responsive.no-wrap
           = image_tag(user.profile_image, size: "35", class: "image-circle") unless user.profile_image.blank?
           '
           = link_to user.full_name, user
-        td = user.email
         td = user.department
         td = user.role
         td = user.level
         td
           - if policy(user).show?
-            = link_to "Посмотреть оценки", user_assessments_path(user)
+            = link_to "открыть", user_assessments_path(user), class: "button tiny"
         td
           - if user.assessments.any?
             - unless user.next_assessment.blank?
