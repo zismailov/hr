@@ -1,12 +1,16 @@
 .scaffold-form
-  = simple_form_for(user) do |f|
+  = simple_form_for(user.to_model) do |f|
     .form-inputs
-      h6 Отдел
-      = f.collection_select :department_id, Department.all, :id, :title, include_blank: true
-      h6 Должность
-      = f.collection_select :role, User.roles, :first, :last, selected: user.role
-      h6 Уровень
-      = f.input :level, collection: 1..5, label: false, include_blank: falsee
+      = f.association :department,
+                      collection: Department.all,
+                      label: "Отдел:"
+      = f.input :role,
+                collection: User::ROLES.invert,
+                label: "Должность:"
+      = f.input :level,
+                collection: 1..5,
+                include_blank: false,
+                label: "Уровень:"
 
     .form-actions
       = f.button :submit, "Сохранить"

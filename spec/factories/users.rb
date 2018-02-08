@@ -11,37 +11,37 @@ FactoryBot.define do
 
   trait :hr do
     email { generate :hr_email }
-    role "HR"
+    role "hr"
   end
 
   trait :manager do
     email { generate :manager_email }
-    role "Менеджер"
+    role "manager"
   end
 
   trait :lead_dev do
     email { generate :lead_dev_email }
-    role "Lead Developer"
+    role "lead_dev"
   end
 
   trait :senior_dev do
     email { generate :senior_dev_email }
-    role "Senior Developer"
+    role "senior_dev"
   end
 
   trait :middle_dev do
     email { generate :middle_dev_email }
-    role "Middle Developer"
+    role "middle_dev"
   end
 
   trait :junior_dev do
     email { generate :junior_dev_email }
-    role "Junior Developer"
+    role "junior_dev"
   end
 
   trait :employee do
     email { generate :junior_dev_email }
-    role "Сотрудник"
+    role "employee"
   end
 
   trait :not_confirmed do

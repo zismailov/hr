@@ -15,7 +15,7 @@ table.table.data-table.responsive.no-wrap
           '
           = link_to user.full_name, user
         td = user.department
-        td = user.role
+        td = user.role_title
         td = user.level
         td
           - if policy(user).show?
