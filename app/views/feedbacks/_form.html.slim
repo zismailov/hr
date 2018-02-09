@@ -6,8 +6,9 @@
       .row
         .small-8.columns
           h5 = sf.object.skill.title
-        .small-4.columns.text-right
+        .small-4.columns.text-right.score-container
           = sf.input :score, collection: [5, 4, 3, 0], label: false, as: :radio_buttons
+          = link_to "очистить выбор", "#", class: "button tiny clean-score-input"
       .row
         .small-12.columns
           = sf.object.skill.description

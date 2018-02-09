@@ -24,3 +24,5 @@ $ ->
 
   $(".data-table").DataTable
     responsive: true
+
+  new ScoreCleaner(el) for el in $(".score-container")
