@@ -3,7 +3,7 @@ class Skill < ApplicationRecord
 
   validates :title, :role, :description, presence: true
   validates :title, uniqueness: { scope: %w[department_id role deleted_at], case_sensitive: false }
-  validates :role, inclusion: { in: %w[lead_dev senior_dev middle_dev junior_dev manager designer] }
+  validates :role, inclusion: { in: %w[hr manager lead_dev senior_dev middle_dev junior_dev designer] }
 
   scope :active, -> { where(deleted_at: nil) }
 end

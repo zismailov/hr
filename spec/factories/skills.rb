@@ -5,19 +5,31 @@ FactoryBot.define do
     description { Faker::Lorem.sentence }
   end
 
+  trait :hr_skill do
+    role "hr"
+  end
+
+  trait :manager_skill do
+    role "manager"
+  end
+
   trait :lead_dev_skill do
-    role "Lead Developer"
+    role "lead_dev"
   end
 
   trait :senior_dev_skill do
-    role "Senior Developer"
+    role "senior_dev"
   end
 
   trait :middle_dev_skill do
-    role "Middle Developer"
+    role "middle_dev"
   end
 
   trait :junior_dev_skill do
-    role "Junior Developer"
+    role "junior_dev"
+  end
+
+  trait :designer_skill do
+    role "designer"
   end
 end

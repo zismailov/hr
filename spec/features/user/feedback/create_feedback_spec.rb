@@ -8,6 +8,7 @@ RSpec.describe "Create Feedback", type: :feature do
     let(:assessment) { create :assessment, :requested_role_senior_dev, user: middle_dev }
 
     before do
+      create :invite, user: current_user, assessment: assessment
       5.times { create :skill, :senior_dev_skill, department: assessment.user.department }
     end
 
@@ -15,9 +16,9 @@ RSpec.describe "Create Feedback", type: :feature do
       visit invites_path
 
       click_link "Создать отзыв"
-      Skill.all.count.times do |n|
+      5.times do |n|
         fill_in "feedback[skill_feedbacks_attributes][#{n}][comment]", with: "comment"
-        choose("feedback[skill_feedbacks_attributes][#{n}][score]")
+        choose "feedback[skill_feedbacks_attributes][#{n}][score]"
       end
       click_button "Сохранить"
 

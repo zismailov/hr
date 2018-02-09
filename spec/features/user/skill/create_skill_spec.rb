@@ -11,6 +11,7 @@ RSpec.describe "Create Skill", type: :feature do
     click_link "Добавить навык"
     fill_in "skill[title]", with: skill_attributes[:title]
     fill_in "skill[description]", with: skill_attributes[:description]
+    select "Senior Developer", from: "skill[role]"
     click_button "Сохранить"
 
     expect(page).to have_content "Навык был успешно создан."

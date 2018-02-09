@@ -11,6 +11,7 @@ RSpec.describe "Create Assessment", type: :feature do
       it "hr creates assessment" do
         visit new_user_assessment_path(middle_dev)
 
+        select "Senior Developer", from: "assessment[requested_role]"
         click_button "Сохранить"
 
         expect(page).to have_content(Time.zone.today.strftime("%e %B %Y"))
