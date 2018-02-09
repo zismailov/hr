@@ -1,0 +1,12 @@
+strong
+  | Уведомление от HR Tool
+p
+  ' Привет,
+  = @user.full_name
+  | !
+p
+  = "Оцени, пожалуйста, своего коллегу #{@assessment.user.full_name}."
+  br
+  ' Перейди по
+  = link_to "ссылке", new_assessment_feedback_url(@assessment)
+  | , чтобы оставить отзыв.

@@ -9,9 +9,9 @@ class InvitesController < ApplicationController
   def create
     authorize invite
 
-    invite.save
+    result = Invites::Create.call(invite: invite)
 
-    redirect_to :back
+    redirect_to :back, notice: result.comment
   end
 
   def destroy
