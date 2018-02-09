@@ -12,7 +12,7 @@
           tr
             td = skill.title
             td = skill.department
-            td = skill.role
+            td = skill.role_title
             td.actions
               => link_to "Показать", skill, class: "button tiny"
               => link_to "Редактировать", edit_skill_path(skill), class: "button tiny"

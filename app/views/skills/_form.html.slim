@@ -5,8 +5,9 @@
       = f.input :title, label: false
       h6 Отдел
       = f.collection_select :department_id, Department.all, :id, :title, include_blank: true
-      h6 Должность
-      = f.collection_select(:role, Skill.roles, :first, :last)
+      = f.input :role,
+                collection: User::ROLES.invert,
+                label: "Должность:"
       h6 Описание
       = f.input :description, input_html: { rows: 4 }, as: :text, label: false
 

@@ -16,7 +16,7 @@ class UserDecorator < ApplicationDecorator
   end
 
   def full_name_with_role
-    "#{object.full_name} (#{role})"
+    "#{object.full_name} (#{role_title})"
   end
 
   def department
