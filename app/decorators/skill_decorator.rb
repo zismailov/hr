@@ -10,6 +10,6 @@ class SkillDecorator < ApplicationDecorator
   end
 
   def skill_info
-    "#{department}, #{role}"
+    "#{department}, #{role_title}"
   end
 end
