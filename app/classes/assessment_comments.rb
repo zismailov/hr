@@ -3,7 +3,7 @@ class AssessmentComments
 
   def initialize(assessment)
     @assessment = assessment
-    @skills = Skill.active.where(role: assessment.requested_role, department: [assessment.user.department, nil])
+    @skills = Skill.active.where(role: [assessment.requested_role, nil], department: [assessment.user.department, nil])
   end
 
   def results
@@ -34,8 +34,11 @@ class AssessmentComments
   def skill_comment(skill)
     result = []
     assessment.feedbacks.each do |feedback|
-      comment = SkillFeedback.find_by(feedback: feedback, skill: skill).comment
-      result << (comment.empty? ? "Нет отзыва" : comment)
+      sf = feedback.skill_feedbacks.where(skill: skill).first
+
+      next unless sf
+
+      result << (sf.comment ? sf.comment : "Нет отзыва")
     end
     result
   end
