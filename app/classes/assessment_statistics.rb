@@ -36,7 +36,7 @@ class AssessmentStatistics
       sf = fetch_skill_feedbacks(skill)
       sum += (sf.sum(:score) * 1.0 / sf.count).round(2) unless sf.sum(:score).zero?
     end
-    sum
+    sum.round(2)
   end
 
   def fetch_skill_feedbacks(skill)
