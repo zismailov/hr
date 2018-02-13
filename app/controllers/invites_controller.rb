@@ -9,9 +9,9 @@ class InvitesController < ApplicationController
   def create
     authorize invite
 
-    result = Invites::Create.call(invite: invite)
+    Invites::Create.call(invite: invite)
 
-    redirect_back(fallback_location: (request.referer || root_path), notice: result.comment)
+    redirect_back fallback_location: (request.referer || root_path)
   end
 
   def destroy
