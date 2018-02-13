@@ -32,7 +32,7 @@ hr
   .medium-12.columns
     h4 Отзывы:
     - if feedbacks.any?
-      table
+      table.table-feedbacks
         thead
           th Навык
           - @assessment_comments[:head].each do |h|
