@@ -11,7 +11,7 @@ class InvitesController < ApplicationController
 
     result = Invites::Create.call(invite: invite)
 
-    redirect_back( fallback_location: (request.referer || root_path), notice: result.comment)
+    redirect_back(fallback_location: (request.referer || root_path), notice: result.comment)
   end
 
   def destroy
