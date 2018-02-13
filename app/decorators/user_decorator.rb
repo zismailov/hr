@@ -44,14 +44,14 @@ class UserDecorator < ApplicationDecorator
   end
 
   def role_with_level
-    "#{role}, Уровень: #{object.level}"
+    "#{role_title}, Уровень: #{object.level}"
   end
 
   def user_info
     if object.department.present?
-      "#{object.full_name} (#{department}, #{role}, ур. #{object.level})"
+      "#{object.full_name} (#{department}, #{role_title}, ур. #{object.level})"
     else
-      "#{object.full_name} (#{role}, ур. #{object.level})"
+      "#{object.full_name} (#{role_title}, ур. #{object.level})"
     end
   end
 
