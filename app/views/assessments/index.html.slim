@@ -1,6 +1,6 @@
 .row
   .medium-2.columns
-    = image_tag(user.profile_image, size: "140", class: "image-circle")
+    = image_tag(user.profile_image, size: "140", class: "image-circle") unless user.profile_image.blank?
   .medium-6.columns
     h3 = user.full_name
     h5 = user.department_info

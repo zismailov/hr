@@ -38,7 +38,7 @@ class AssessmentComments
 
       next unless sf
 
-      result << (sf.comment ? sf.comment : "Нет отзыва")
+      result << (sf.comment.presence || "Нет отзыва")
     end
     result
   end

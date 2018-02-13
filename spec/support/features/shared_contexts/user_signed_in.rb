@@ -1,4 +1,4 @@
-shared_context "when current user signed in" do
+shared_context "current user signed in" do
   let(:current_user) { create :user, :hr }
 
   before do

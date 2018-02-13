@@ -1,17 +1,5 @@
 %w(Android Front-end iOS Ruby Design).each {|title| Department.create title: title }
 
-# Личностные качества, junior_dev
-Skill.create title: "Общение с заказчиком", department_id: nil, role: "junior_dev", description: "Знает заказчика и цели проекта."
-
-# Личностные качества, middle_dev
-Skill.create title: "Общение с заказчиком", department_id: nil, role: "middle_dev", description: "Выясняет письменно детали задачи в таск трекере. Знает последние требования в проекте."
-
-# Личностные качества, senior_dev
-Skill.create title: "Общение с заказчиком", department_id: nil, role: "senior_dev", description: "Регулярно общается с заказчиком как в рамках проекта, так и на общие темы. Знает особенности бизнеса заказчика в рамках проекта. Предлагает выгодное для заказчика развитие проекта."
-
-# Личностные качества, lead_dev
-Skill.create title: "Общение с заказчиком", department_id: nil, role: "lead_dev", description: "Регулярно общается с заказчиком как в рамках проекта, так и на общие темы. Знает особенности бизнеса заказчика в рамках проекта. Предлагает выгодное для заказчика развитие проекта."
-
 # Android, junior_dev
 Skill.create title: "Java", department_id: 1, role: "junior_dev", description: "Знает основы языка. Знает основы ООП. Использует наследование там, где это нужно. Знает коллекции данных"
 
