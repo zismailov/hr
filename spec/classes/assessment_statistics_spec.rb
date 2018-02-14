@@ -20,7 +20,7 @@ describe AssessmentStatistics do
     end
 
     it "returns right total_avg_sum" do
-      expect(statistic[:total_avg_sum]).to eq(8.5)
+      expect(statistic[:total_result]).to eq("8.5 из 10.0, 85.0%")
     end
 
     it "returns right skill_statistic" do
@@ -39,7 +39,7 @@ describe AssessmentStatistics do
     end
 
     it "returns right total_avg_sum" do
-      expect(statistic[:total_avg_sum]).to eq(8.5)
+      expect(statistic[:total_result]).to eq("8.5 из 10.0, 85.0%")
     end
 
     it "returns right skill_statistic" do

@@ -9,7 +9,7 @@ class AssessmentStatistics
   def results
     {
       skill_statistic: skill_statistic,
-      total_avg_sum: assessment.feedbacks.any? ? total_avg_sum : 0
+      total_result: total_result
     }
   end
 
@@ -37,6 +37,22 @@ class AssessmentStatistics
       sum += (sf.sum(:score) * 1.0 / sf.count).round(2) unless sf.sum(:score).zero?
     end
     sum.round(2)
+  end
+
+  def count_max
+    n = 0
+    skills.each do |skill|
+      sf = fetch_skill_feedbacks(skill)
+      n = 1 unless sf.sum(:score).zero?
+    end
+    n *= 5.0
+  end
+
+  def total_result
+    n = count_max
+    sum = total_avg_sum
+    return "0 из 0, 0%" if n.zero?
+    "#{sum} из #{n}, #{sum * 100 / n}%"
   end
 
   def fetch_skill_feedbacks(skill)

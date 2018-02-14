@@ -2,15 +2,17 @@
   .medium-12.columns
     h3 Отзыв от #{feedback.assessment.user.full_name}
     h4 Дата оценки: #{feedback.assessment.date}
-  hr
-  table
-    thead
-      th Навык
-      th Балл
-      th Комментарий
-    tbody
-      - skill_feedbacks.each do |sf|
-        tr
-          td = sf.skill.title
-          td = sf.score
-          td = sf.comment
+    hr
+    table
+      thead
+        th Навык
+        th Балл
+        th Комментарий
+      tbody
+        - skill_feedbacks.each do |sf|
+          tr
+            td = sf.skill.title
+            td = sf.score
+            td = sf.comment
+
+    = link_to "Редактировать", edit_feedback_path(feedback), class: "button"
