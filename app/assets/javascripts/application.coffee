@@ -26,3 +26,4 @@ $ ->
     responsive: true
 
   new ScoreCleaner(el) for el in $(".score-container")
+  new AlertMessage(el) for el in $(".score-container")
