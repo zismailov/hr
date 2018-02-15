@@ -35,20 +35,21 @@ hr
       table.table-feedbacks
         thead
           th Навык
-          - @assessment_comments[:head].each do |h|
-            th = h
+          - @assessment_comments[:head].each do |user|
+            th = user
         tbody
-          - @assessment_comments[:body].each do |b|
+          - @assessment_comments[:body].each do |skill_with_comments|
             tr
-              - b.each do |bb|
-                td = bb
+              td = link_to skill_with_comments[0], skill_path(skill_with_comments[1])
+              - skill_with_comments[2..-1].each do |comment|
+                td = comment
     - else
       h5 Отзывов пока нет
 .row
   .meduim-12.columns
     h4 Результат
     .text-center
-      h3 Общая сумма баллов: #{@assessment_statistics[:total_result]}
+      h3 Общая сумма баллов: #{@assessment_statistics[:total_avg_sum]}
 
     table
       thead
@@ -58,13 +59,13 @@ hr
         th Среднее
         th Сумма
       tbody
-        - @assessment_statistics[:skill_statistic].each do |ss|
+        - @assessment_statistics[:skill_statistic].each do |skill_with_scores|
           tr
-            td = ss[0]
+            td = link_to skill_with_scores[0], skill_path(skill_with_scores[1])
             - feedbacks.each do |feedback|
-              - if feedback.skill_feedbacks.find_by(skill_id: ss[1])
-                td = feedback.skill_feedbacks.find_by(skill_id: ss[1]).score
+              - if feedback.skill_feedbacks.find_by(skill_id: skill_with_scores[1])
+                td = feedback.skill_feedbacks.find_by(skill_id: skill_with_scores[1]).score
               - else
                 td
-            td = ss[2]
-            td = ss[3]
+            td = skill_with_scores[2]
+            td = skill_with_scores[3]
