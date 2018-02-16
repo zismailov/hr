@@ -52,7 +52,7 @@ class AssessmentStatistics
     n = count_max
     sum = total_avg_sum
     return "0 из 0, 0%" if n.zero?
-    "#{sum} из #{n}, #{sum * 100 / n}%"
+    "#{sum} из #{n}, #{(sum * 100 / n).round(2)}%"
   end
 
   def fetch_skill_feedbacks(skill)
