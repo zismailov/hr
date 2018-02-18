@@ -36,7 +36,7 @@ class AssessmentComments
     assessment.feedbacks.each do |feedback|
       sf = feedback.skill_feedbacks.where(skill: skill).first
 
-      next unless sf
+      return "Нет отзыва" unless sf
 
       result << (sf.comment.presence || "Нет отзыва")
     end
