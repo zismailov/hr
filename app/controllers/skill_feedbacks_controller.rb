@@ -1,4 +1,6 @@
 class SkillFeedbacksController < ApplicationController
+  before_action :authenticate_user!
+
   respond_to :html
 
   expose :skill_feedback

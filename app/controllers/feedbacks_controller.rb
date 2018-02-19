@@ -1,5 +1,6 @@
 class FeedbacksController < ApplicationController
   before_action :authorize!, only: %w[edit update destroy]
+  before_action :authenticate_user!
 
   respond_to :html
 
