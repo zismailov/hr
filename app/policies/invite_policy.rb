@@ -6,4 +6,8 @@ class InvitePolicy < ApplicationPolicy
   def create?
     hr?
   end
+
+  def destroy?
+    hr?
+  end
 end
