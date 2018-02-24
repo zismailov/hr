@@ -3,6 +3,10 @@ class AssessmentPolicy < ApplicationPolicy
     hr? || record.user == user
   end
 
+  def show_results?
+    hr?
+  end
+
   def create?
     hr?
   end
