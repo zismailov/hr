@@ -1,6 +1,6 @@
 class InvitesController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize!
+  before_action :authorize!, only: %w[create destroy]
 
   respond_to :html
 
