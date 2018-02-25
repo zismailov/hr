@@ -4,7 +4,6 @@ class UserDecorator < ApplicationDecorator
     :full_name,
     :email,
     :level,
-    :profile_image,
     :hr?
 
   decorates_association :invites
@@ -58,5 +57,9 @@ class UserDecorator < ApplicationDecorator
   def next_assessment
     assessments = object.assessments.active.sorted_by_date.where("date >= ?", Time.zone.now)
     assessments.first.decorate if assessments.any?
+  end
+
+  def profile_image
+    object.profile_image || h.asset_path("default_avatar.png")
   end
 end
