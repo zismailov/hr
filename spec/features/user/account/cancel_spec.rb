@@ -12,7 +12,6 @@ RSpec.describe "Cancel Account", type: :feature do
 
     expect(page).to have_content("Войти")
 
-    click_link "Войти"
     fill_form(:user, current_user.attributes.slice(:email, :password))
     click_button "Войти"
 
