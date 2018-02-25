@@ -22,8 +22,9 @@ ratings:
   - "**.coffee"
   - "**.js"
   exclude_paths:
-  - bin/
-  - config/
-  - db/
-  - spec/
-  - lib/
+    - "bin/"
+    - "config/"
+    - "db/"
+    - "spec/"
+    - "lib/"
+    - ".bundle/"

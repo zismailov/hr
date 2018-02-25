@@ -463,6 +463,7 @@ DEPENDENCIES
   seedbank
   shoulda-matchers
   simple_form
+  simplecov
   slim
   slim-rails
   stackprof

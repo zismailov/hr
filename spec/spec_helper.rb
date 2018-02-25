@@ -1,3 +1,6 @@
+require "simplecov"
+SimpleCov.start { add_filter %w[.bundle/ config/ spec/] }
+
 RSpec.configure do |config|
   config.backtrace_exclusion_patterns << /\.bundle/
 

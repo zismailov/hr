@@ -64,6 +64,7 @@ group :test do
   gem "poltergeist"
   gem "rspec-its"
   gem "shoulda-matchers"
+  gem "simplecov"
   gem "webmock", require: false
 end
 
