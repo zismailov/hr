@@ -21,6 +21,7 @@ gem "uglifier", ">= 1.3.0"
 
 # views
 gem "active_link_to"
+gem "font-awesome-rails"
 gem "inky-rb", require: "inky"
 gem "metamagic"
 gem "simple_form"

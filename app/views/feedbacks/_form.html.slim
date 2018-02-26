@@ -5,13 +5,17 @@
       = sf.input :skill_id, value: sf.object.skill_id, as: :hidden
       .row
         .small-8.columns
-          h5 = sf.object.skill.title
+          h5
+            => sf.object.skill.title
+            .question
+              i.fa.fa-question-circle-o
+              .question-text
+                = sf.object.skill.description
         .small-4.columns.text-right.score-container
           = sf.input :score, collection: [5, 4, 3, 0], label: false, as: :radio_buttons
           = link_to "очистить выбор", "#", class: "button tiny clean-score-input"
       .row
         .small-12.columns
-          = sf.object.skill.description
           = sf.input :comment, as: :text, label: false, input_html: { rows: 4 },
             placeholder: "Пожалуйста, оставьте здесь комментарий"
       br
