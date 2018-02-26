@@ -22,6 +22,6 @@ class UsersController < ApplicationController
   end
 
   def authorize!
-    authorize user
+    authorize user, "#{params[:action]}?"
   end
 end
