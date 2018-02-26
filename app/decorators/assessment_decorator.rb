@@ -27,4 +27,8 @@ class AssessmentDecorator < ApplicationDecorator
   def requested_role
     User::ROLES[object.requested_role]
   end
+
+  def user_full_name
+    object.user.full_name
+  end
 end

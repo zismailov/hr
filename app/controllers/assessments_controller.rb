@@ -24,14 +24,13 @@ class AssessmentsController < ApplicationController
   end
 
   def update
-    assessment.update_attributes(assessment_params)
+    assessment.update(assessment_params)
 
     redirect_to user_assessments_path(user)
   end
 
   def destroy
-    assessment.deleted_at = Time.zone.now
-    assessment.save
+    assessment.update(deleted_at: Time.zone.now)
 
     redirect_to user_assessments_path(user)
   end
@@ -49,8 +48,8 @@ class AssessmentsController < ApplicationController
   def fetch_invites
     assessment.invites.includes(:feedback, user: :department)
   end
-end
 
-def fetch_skills
-  Skill.active.where(role: assessment.requested_role, department: [assessment.user.department, nil])
+  def fetch_skills
+    Skill.active.where(role: assessment.requested_role, department: [assessment.user.department, nil])
+  end
 end

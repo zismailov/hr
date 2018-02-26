@@ -9,10 +9,10 @@
         th Балл
         th Комментарий
       tbody
-        - skill_feedbacks.each do |sf|
+        - skill_feedbacks.each do |skill_feedback|
           tr
-            td = sf.skill.title
-            td = sf.score
-            td = sf.comment
+            td = skill_feedback.skill_title
+            td = skill_feedback.score
+            td = skill_feedback.comment
 
     = link_to "Редактировать", edit_feedback_path(feedback), class: "button"

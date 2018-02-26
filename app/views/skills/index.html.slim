@@ -8,15 +8,6 @@
           th Должность
           th Дейсвтия
       tbody
-        - skills.each do |skill|
-          tr
-            td = skill.title
-            td = skill.department
-            td = skill.role_title
-            td.actions
-              => link_to "Показать", skill, class: "button tiny"
-              => link_to "Редактировать", edit_skill_path(skill), class: "button tiny"
-              = link_to "Архивировать", skill, method: :delete, data: { confirm: "Вы уверены?" },
-                                        class: "button tiny alert"
+        = render skills
 
     = link_to "Добавить навык", new_skill_path, class: "button"

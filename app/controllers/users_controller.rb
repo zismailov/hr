@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize!, only: %w[update]
+
   expose_decorated :user
   expose_decorated :users, -> { fetch_users }
 
@@ -19,5 +21,9 @@ class UsersController < ApplicationController
 
   def fetch_users
     User.sorted.includes(:assessments, :department)
+  end
+
+  def authorize!
+    authorize user
   end
 end

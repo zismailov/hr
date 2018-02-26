@@ -24,7 +24,6 @@ class User < ApplicationRecord
   validates :level, inclusion: 1..5
 
   scope :sorted, -> { order(full_name: :asc) }
-  scope :hr, -> { where(role: "hr") }
 
   def hr?
     role == "hr"

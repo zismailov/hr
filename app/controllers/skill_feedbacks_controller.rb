@@ -7,7 +7,7 @@ class SkillFeedbacksController < ApplicationController
   end
 
   def update
-    skill_feedback.update_attributes(skill_feedback_params)
+    skill_feedback.update(skill_feedback_params)
     respond_with(skill_feedback)
   end
 

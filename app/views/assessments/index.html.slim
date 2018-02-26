@@ -17,19 +17,9 @@
             th Дата
             th Претендуемая должность
             th Действия
-        - assessments.each do |assessment|
-          tr
-            td = assessment.date
-            td = assessment.requested_role
-            td.actions
-              => link_to "Посмотреть", user_assessment_path(user, assessment),
-                                       class: "button tiny"
-              - if policy(assessment).manage?
-                => link_to "Редактировать", edit_user_assessment_path(user, assessment),
-                                            class: "button tiny"
-                = link_to "Архивировать", user_assessment_path(user, assessment),
-                                          method: :delete,
-                                          class: "button tiny alert"
+        tbody
+          = render assessments
+
     - else
       .text-center
         h5 Ни одной оценки пока не запланировано!

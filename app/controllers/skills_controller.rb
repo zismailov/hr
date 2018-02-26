@@ -8,13 +8,12 @@ class SkillsController < ApplicationController
   end
 
   def update
-    skill.update_attributes(skill_params)
+    skill.update(skill_params)
     respond_with skill
   end
 
   def destroy
-    skill.deleted_at = Time.zone.now
-    skill.save
+    skill.update(deleted_at: Time.zone.now)
 
     redirect_to skills_path, notice: "Навык был успешно заархивирован"
   end

@@ -1,7 +1,7 @@
 class @AlertMessage
 
   constructor: (el) ->
-    @scoreFive = $(el).find("input").first()
+    @scoreFive = $(el).find("input[value=5]").first()
     @_alertMessage()
 
   _alertMessage: ->

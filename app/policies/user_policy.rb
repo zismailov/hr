@@ -10,4 +10,8 @@ class UserPolicy < ApplicationPolicy
   def update?
     hr?
   end
+
+  def edit?
+    hr?
+  end
 end
