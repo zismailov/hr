@@ -1,5 +1,5 @@
 class FeedbacksController < ApplicationController
-  before_action :authorize!, only: %w[edit update destroy]
+  before_action :authorize!, only: %w[edit update]
   before_action :authenticate_user!
 
   respond_to :html
@@ -10,8 +10,6 @@ class FeedbacksController < ApplicationController
   expose :feedbacks, -> { current_user.feedbacks.includes(assessment: :user) }
   expose :skill_feedbacks, -> { feedback.skill_feedbacks.includes(:skill) }
   expose :skills, -> { fetch_skills }
-
-  def index; end
 
   def new
     skills.each do |skill|
@@ -31,11 +29,6 @@ class FeedbacksController < ApplicationController
 
   def update
     feedback.update_attributes(feedback_params)
-    respond_with(feedback)
-  end
-
-  def destroy
-    feedback.destroy
     respond_with(feedback)
   end
 
