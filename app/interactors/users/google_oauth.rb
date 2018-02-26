@@ -20,28 +20,20 @@ module Users
     end
 
     def update_user(user)
-      user.update(full_name: full_name, profile_image: profile_image)
+      user.update(full_name: name, profile_image: image)
     end
 
     def create_user
       User.create(email: email,
-                  full_name: full_name,
-                  profile_image: profile_image,
+                  full_name: name,
+                  profile_image: image,
                   password: Devise.friendly_token[0, 20],
                   confirmed_at: Time.zone.now,
                   role: "employee")
     end
 
-    def email
-      data["email"]
-    end
-
-    def full_name
-      data["name"]
-    end
-
-    def profile_image
-      data["image"]
+    %w[email name image].each do |meth|
+      define_method(meth) { data[meth.to_sym] }
     end
   end
 end
