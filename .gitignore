@@ -22,6 +22,8 @@
 # redis
 dump.rdb
 
+/coverage
+
 # idea
 .idea
 
