@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "Create Skill", type: :feature do
-  include_context "current user signed in"
+RSpec.describe "Create", type: :feature do
+  include_context "hr signed in"
 
   let(:skill_attributes) { attributes_for(:skill).slice(:title, :description) }
 

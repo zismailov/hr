@@ -1,8 +1,5 @@
 class AssessmentsController < ApplicationController
   before_action :authorize!
-  before_action :authenticate_user!
-
-  respond_to :html
 
   expose :invite, -> { Invite.new }
 

@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "Sign Out", type: :feature do
-  include_context "current user signed in"
+  include_context "hr signed in"
 
   it "User signs out" do
     visit "/"

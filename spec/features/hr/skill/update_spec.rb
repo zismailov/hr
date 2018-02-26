@@ -1,11 +1,11 @@
 require "rails_helper"
 
-RSpec.describe "Update Skill", type: :feature do
-  include_context "current user signed in"
+RSpec.describe "Update", type: :feature do
+  include_context "hr signed in"
 
   let(:skill) { create :skill, :senior_dev_skill }
 
-  it "User creates skill" do
+  it "User updates skill's description" do
     visit edit_skill_path(skill)
 
     fill_in "skill[title]", with: "Новый навык"

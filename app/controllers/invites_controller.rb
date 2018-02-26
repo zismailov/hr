@@ -1,8 +1,5 @@
 class InvitesController < ApplicationController
-  before_action :authenticate_user!
   before_action :authorize!, only: %w[create destroy]
-
-  respond_to :html
 
   expose :invite
   expose_decorated :invites, -> { fetch_invites }
@@ -10,8 +7,6 @@ class InvitesController < ApplicationController
   def index; end
 
   def create
-    authorize invite
-
     Invites::Create.call(invite: invite)
 
     redirect_back fallback_location: root_path

@@ -1,12 +1,13 @@
 FactoryBot.define do
   factory :user do
     full_name { Faker::Name.name }
-    email { generate :hr_email }
+    email
     password "123456"
     password_confirmation { password }
     level 1
     department
     confirmed_at { 1.hour.ago }
+    role "employee"
   end
 
   trait :hr do
@@ -42,11 +43,6 @@ FactoryBot.define do
   trait :designer do
     email { generate :designer_email }
     role "designer"
-  end
-
-  trait :employee do
-    email { generate :junior_dev_email }
-    role "employee"
   end
 
   trait :not_confirmed do

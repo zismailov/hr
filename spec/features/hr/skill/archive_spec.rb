@@ -1,7 +1,7 @@
 require "rails_helper"
 
-RSpec.describe "Archive Skill", type: :feature do
-  include_context "current user signed in"
+RSpec.describe "Archive", type: :feature do
+  include_context "hr signed in"
 
   let(:skill) { create :skill, :senior_dev_skill }
 

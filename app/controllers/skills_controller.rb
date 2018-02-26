@@ -1,8 +1,4 @@
 class SkillsController < ApplicationController
-  before_action :authenticate_user!
-
-  respond_to :html
-
   expose_decorated :skill
   expose_decorated :skills, -> { Skill.active.includes(:department) }
 

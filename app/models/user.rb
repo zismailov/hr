@@ -24,15 +24,14 @@ class User < ApplicationRecord
   validates :level, inclusion: 1..5
 
   scope :sorted, -> { order(full_name: :asc) }
-
-  # User::ROLES.keys.map(&:to_s).each do |role|
-  #   define_method("#{role}?") do
-  #     role == role.to_s
-  #   end
-  # end
+  scope :hr, -> { where(role: "hr") }
 
   def hr?
     role == "hr"
+  end
+
+  def employee?
+    !hr?
   end
 
   def self.from_omniauth(access_token)

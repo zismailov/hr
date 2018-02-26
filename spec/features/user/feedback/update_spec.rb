@@ -1,8 +1,8 @@
 require "rails_helper"
 
-RSpec.describe "Update Feedback", type: :feature do
+RSpec.describe "Update", type: :feature do
   describe "#update" do
-    include_context "current user signed in"
+    include_context "hr signed in"
 
     let(:middle_dev) { create :user, :middle_dev }
     let(:assessment) { create :assessment, :requested_role_senior_dev, user: middle_dev }

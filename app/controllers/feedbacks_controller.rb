@@ -1,8 +1,5 @@
 class FeedbacksController < ApplicationController
   before_action :authorize!, only: %w[edit update]
-  before_action :authenticate_user!
-
-  respond_to :html
 
   expose :feedback
   expose :assessment
