@@ -7,8 +7,6 @@ class UsersController < ApplicationController
   def index; end
 
   def update
-    authorize user
-
     user.update(user_params)
     respond_with user
   end
