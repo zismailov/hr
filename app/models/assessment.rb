@@ -8,4 +8,8 @@ class Assessment < ApplicationRecord
 
   scope :active, -> { where(deleted_at: nil) }
   scope :sorted_by_date, -> { order(date: :asc) }
+
+  def invited_users
+    User.joins(:invites).where("invites.assessment_id = ?", id).order("invites.created_at ASC")
+  end
 end

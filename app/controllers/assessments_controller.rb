@@ -2,18 +2,18 @@ class AssessmentsController < ApplicationController
   before_action :authorize!
 
   expose :invite, -> { Invite.new }
+  expose :skills, -> { fetch_skills }
+  expose :feedbacks, -> { assessment.feedbacks }
 
-  expose_decorated :user
   expose_decorated :assessment
   expose_decorated :assessments, -> { user.assessments.active.sorted_by_date }
 
+  expose_decorated :user
   expose_decorated :users, -> { User.sorted.includes(:department) }
   expose_decorated :invites, -> { fetch_invites }
-  expose_decorated :feedbacks, -> { assessment.feedbacks.includes(:user) }
 
   def show
-    @assessment_comments = AssessmentComments.new(assessment).results
-    @assessment_statistics = AssessmentStatistics.new(assessment).results
+    @results = Results.new(assessment)
   end
 
   def create
@@ -49,4 +49,8 @@ class AssessmentsController < ApplicationController
   def fetch_invites
     assessment.invites.includes(:feedback, user: :department)
   end
+end
+
+def fetch_skills
+  Skill.active.where(role: assessment.requested_role, department: [assessment.user.department, nil])
 end

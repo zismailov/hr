@@ -1,13 +1,18 @@
 .row
-  .medium-12.columns
+  .medium-2.columns
+    = image_tag(user.profile_image, size: "140", class: "image-circle")
+  .medium-10.columns
     h3 = user.full_name
     h5
-      ' Оценка:
-      = assessment.date
+      = user.department_info
+      br
+      = user.role_with_level
       br
       = assessment.info
+      br
+      = assessment.date_info
     - if AssessmentPolicy.new(current_user).edit?
-      = link_to "Редактировать", edit_user_assessment_path(user, assessment)
+      = link_to "Редактировать", edit_user_assessment_path(user, assessment), class: "button"
 hr
 
 .row
@@ -32,43 +37,33 @@ hr
 - if policy(assessment).show_results?
   .row
     .medium-12.columns
-      h4 Отзывы:
+      h4.text-center Отзывы:
       - if feedbacks.any?
         table.table-feedbacks
-          thead.fixed
+          thead
             tr
               th Навык
-              - @assessment_comments[:head].each do |user|
-                th = user
+              - assessment.invited_users.each do |invited_user|
+                th = invited_user.full_name
           tbody
-            - @assessment_comments[:body].each do |skill_with_comments|
+            - skills.each do |skill|
               tr
-                td = link_to skill_with_comments[0], skill_path(skill_with_comments[1])
-                - skill_with_comments[2..-1].each do |comment|
+                td = link_to skill.title, skill_path(skill)
+                - @results.users_comments(skill).each do |comment|
                   td = comment
       - else
         h5 Отзывов пока нет
-.row
-  .meduim-12.columns
-    h4 Результат
-    .text-center
-      h3 Общая сумма баллов: #{@assessment_statistics[:total_result]}
-    - if policy(assessment).show_results?
+
       table
         thead
           th Навык
-          - feedbacks.each do |feedback|
-            th = feedback.user.full_name
+          - assessment.invited_users.each do |invited_user|
+            th = invited_user.full_name
           th Среднее
           th Сумма
         tbody
-          - @assessment_statistics[:skill_statistic].each do |skill_with_scores|
+          - skills.each do |skill|
             tr
-              td = link_to skill_with_scores[0], skill_path(skill_with_scores[1])
-              - feedbacks.each do |feedback|
-                - if feedback.skill_feedbacks.find_by(skill_id: skill_with_scores[1])
-                  td = feedback.skill_feedbacks.find_by(skill_id: skill_with_scores[1]).score
-                - else
-                  td
-              td = skill_with_scores[2]
-              td = skill_with_scores[3]
+              td = link_to skill.title, skill_path(skill)
+              - @results.users_scores(skill).each do |score|
+                td = score
