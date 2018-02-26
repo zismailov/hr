@@ -34,7 +34,7 @@ class Results
   def count_avg_and_sum(scores)
     numbers = []
     scores.each { |score| numbers << score if score.is_a? Integer }
-    scores + (numbers.empty? ? [0, 0] : [(numbers.sum * 1.0 / numbers.length).round(2), numbers.sum])
+    scores + (numbers.empty? ? [0, 0] : [(numbers.sum * 1.0 / numbers.size).round(2), numbers.sum])
   end
 
   def skill_feedback(skill, user)
