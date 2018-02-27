@@ -12,19 +12,19 @@
 ```bash
 git clone https://github.com/zismailov/hr
 ```
-3. Run setup script
+2. Run setup script
 
 ```bash
 bin/setup
 ```
 
-4. Run test and quality suits to make sure all dependencies are satisfied and applications works correctly before making changes.
+3. Run test and quality suits to make sure all dependencies are satisfied and applications works correctly before making changes.
 
 ```bash
 bin/ci
 ```
 
-5. Run app
+4. Run app
 
 ```bash
 bin/server
